@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>「独树不成林」内容来源对照 · 随机抽样阶段性核查</title>
+<style>
+:root {
+  --paper:#fbf9f4; --paper2:#f4f1e8; --ink:#1a1a1a; --ink2:#555;
+  --rule:#1a1a1a; --hair:#d5d0c2;
+  --match:#7a1f1f; --partial:#7a5a1a; --echo:#1f3a5c; --trace:#4a4a5c;
+  --none:#5a6355; --ok:#2d5a3d;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:#eeeae0; color:var(--ink);
+  font-family:"Songti SC","Noto Serif CJK SC","Source Han Serif SC","SimSun","宋体",
+    "STSong",Georgia,"Times New Roman",serif;
+  font-size:16px; line-height:1.9; letter-spacing:.02em; }
+.sheet { max-width:1040px; margin:24px auto; background:var(--paper);
+  box-shadow:0 2px 14px rgba(0,0,0,.13); }
+.inner { padding:34px 48px 52px; }
+
+/* 报头 */
+.head { text-align:center; border-bottom:2.5px solid var(--rule); padding-bottom:16px; }
+.head .title { font-size:31px; font-weight:700; letter-spacing:3px; line-height:1.5; }
+.head .podcast { font-size:16px; color:var(--ink2); letter-spacing:1px; margin-top:10px; }
+.head .sub { font-size:12.5px; letter-spacing:2px; color:var(--ink2); margin-top:8px; }
+.head .bar { display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px;
+  font-size:11.5px; letter-spacing:1px; color:var(--ink2); margin-top:14px;
+  border-top:1px solid var(--rule); padding-top:8px; }
+
+/* 导言 */
+.lede { margin-top:26px; font-size:15.5px; text-align:justify; }
+.lede p { text-indent:2em; margin-bottom:12px; }
+.lede p.noind { text-indent:0; }
+
+/* 数字带 */
+.stats { display:flex; margin-top:22px; border-top:2px solid var(--rule);
+  border-bottom:2px solid var(--rule); }
+.stats .c { flex:1; text-align:center; padding:12px 4px; border-right:1px solid var(--hair); }
+.stats .c:last-child { border-right:none; }
+.stats .n { font-size:28px; font-weight:700; font-family:"Courier New",serif; }
+.stats .l { font-size:11px; letter-spacing:2px; color:var(--ink2); margin-top:3px;
+  text-transform:uppercase; }
+.n.match{color:var(--match);} .n.partial{color:var(--partial);} .n.echo{color:var(--echo);}
+.n.trace{color:var(--trace);} .n.none{color:var(--none);} .n.ok{color:var(--ok);}
+
+/* 节 */
+.sec { margin-top:36px; }
+.sec-h { border-top:2.5px solid var(--rule); padding:8px 0 6px;
+  display:flex; justify-content:space-between; align-items:baseline;
+  border-bottom:1px solid var(--hair); }
+.sec-h h2 { font-size:18px; font-weight:700; letter-spacing:2px; }
+.sec-h span { font-size:11.5px; color:var(--ink2); letter-spacing:1px; }
+
+/* 目录表 */
+table.toc { width:100%; border-collapse:collapse; margin-top:10px; font-size:12.8px; }
+table.toc th { border-bottom:1px solid var(--rule); padding:5px 6px; text-align:left;
+  font-size:10.5px; letter-spacing:2px; text-transform:uppercase; color:var(--ink2); }
+table.toc td { border-bottom:1px solid var(--hair); padding:5px 6px; vertical-align:top; }
+table.toc a { color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--ink2); }
+table.toc .nu { font-family:"Courier New",monospace; white-space:nowrap; }
+.st { font-weight:700; font-size:11px; letter-spacing:1px; padding:1px 7px;
+  border:1px solid currentColor; white-space:nowrap; }
+.st.match{color:var(--match);} .st.partial{color:var(--partial);} .st.echo{color:var(--echo);}
+.st.trace{color:var(--trace);} .st.none{color:var(--none);} .st.ok{color:var(--ok);}
+.mk { background:var(--ink); color:var(--paper); font-size:9.5px; padding:1px 5px;
+  letter-spacing:1px; margin-left:5px; vertical-align:2px; }
+
+/* 方法说明 */
+.methods { font-size:13.5px; margin-top:10px; }
+.methods .row { display:grid; grid-template-columns:118px 1fr; gap:12px;
+  border-bottom:1px solid var(--hair); padding:9px 2px; }
+.methods .k { font-weight:700; }
+.methods .v { line-height:1.8; }
+
+/* 条目 */
+article.rec { margin-top:26px; border-top:1.5px solid var(--rule); padding-top:10px; }
+.rec-top { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px; }
+.rec h3 { font-size:19px; font-weight:700; line-height:1.5; margin-top:6px; }
+.rec .to { font-size:13.5px; color:var(--ink2); margin-top:4px; line-height:1.7; }
+.rec .meta { font-size:11.5px; color:var(--ink2); margin-top:7px; line-height:1.9;
+  border-left:2.5px solid var(--rule); padding-left:10px; }
+.rec .meta a { color:var(--echo); text-decoration:none; word-break:break-all; }
+.rec .meta .ck { font-family:"Courier New",monospace; font-size:10.5px; }
+.rec .lvl { font-size:12.5px; margin-top:7px; color:var(--ink); }
+.rec .lvl b { letter-spacing:.5px; }
+
+.ev { margin-top:13px; }
+.ev .ty { font-size:10.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+  border-bottom:1.5px solid var(--rule); display:inline-block; padding-bottom:2px; margin-bottom:6px; }
+.duo { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--hair); }
+.duo .q { padding:9px 13px; font-size:12.8px; line-height:1.8; }
+.duo .q.e { border-right:1px solid var(--hair); }
+.duo .q.c { background:var(--paper2); }
+.duo .lab { font-size:9.5px; letter-spacing:1.5px; color:var(--ink2); text-transform:uppercase;
+  margin-bottom:4px; }
+.ev .nt, .ev .ck2 { font-size:11.8px; color:var(--ink2); margin-top:6px; line-height:1.7; }
+.ev .ck2 { border-top:1px dotted var(--hair); padding-top:5px; margin-top:8px; }
+.rec .basis { font-size:12.8px; margin-top:9px; }
+.rec .basis .b { border:1px solid var(--rule); padding:6px 10px; background:var(--paper2); }
+.rec .cav { font-size:12.3px; color:var(--partial); margin-top:7px; line-height:1.7; }
+.rec .cav::before { content:"注："; font-weight:700; }
+
+/* 结语 */
+.closing { font-size:14px; text-align:justify; margin-top:12px; }
+.closing p { text-indent:2em; margin-bottom:9px; }
+.notice { border:1.5px solid var(--rule); padding:12px 16px; margin-top:16px;
+  font-size:12px; line-height:1.9; background:var(--paper2); }
+.colophon { margin-top:30px; border-top:2.5px solid var(--rule); padding-top:10px;
+  text-align:center; font-size:11px; color:var(--ink2); letter-spacing:1px; line-height:2; }
+
+@media (max-width:860px) {
+  .inner { padding:18px 14px 30px; }
+  .duo { grid-template-columns:1fr; }
+  .duo .q.e { border-right:none; border-bottom:1px solid var(--hair); }
+  .head .title { font-size:22px; letter-spacing:5px; }
+  .stats { flex-wrap:wrap; } .stats .c { flex:1 1 33%; }
+  .methods .row { grid-template-columns:1fr; gap:2px; }
+}
+@media print { body{background:#fff} .sheet{box-shadow:none} article.rec{break-inside:avoid} }
+</style>
+</head>
+<body>
+<div class="sheet">
+<div class="inner">
+
+<header class="head">
+  <div class="title">「独树不成林」内容来源对照</div>
+  <div class="podcast">中文播客 · 仲树（主播） · 小宇宙 / Apple Podcasts</div>
+  <div class="sub">CONTENT ORIGIN REVIEW · 随机抽样阶段性核查 · 文本比对记录 · 供独立核验</div>
+  <div class="bar">
+    <span>阶段性版本 · 非全量结论</span>
+    <span>2026 年 8 月 16 日 编制</span>
+    <span>抽查比对 38 组（全档 349 期之部分）</span>
+  </div>
+</header>
+
+<section class="lede">
+  <p class="noind"><b>关于本页。</b>这是一份针对中文播客「独树不成林」（主播：仲树）部分单集所做的
+  文本来源对照。该播客以个人视角讨论文学、哲学、政治与历史，在中文播客平台（小宇宙、Apple Podcasts 等）
+  有较大传播。本页的工作是：将其若干期节目的文字内容，与境外播客、英文专著及公开报道逐项比对，
+  并如实刊出对照结果。</p>
+  <p><b>抽样范围。</b>该播客全档共 349 期，本页目前仅呈现其中 <b>38 组</b>比对记录。
+  这并非全量普查，也非最终结论：部分对照源自社区已有的讨论线索，部分为本项目在抽样中自行发现。
+  未收录的期数不代表已核查或已排除，只代表尚未比对。</p>
+  <p><b>比对方法。</b>获取双方音频 → 本地转录为文字 → 就叙事顺序、论证结构、具体细节
+  （数字、轶事、比喻、主持人的即兴表达）逐项对照 → 由独立语言模型（不参与判级）复核对应强度。
+  全部转录稿附校验和与原始音频链接，读者可自行核验。</p>
+  <p>比对结论分若干层级，措辞力求克制：凡仅题材相同者，不列为证据。其中 10 组呈现
+  高度吻合（含逐句直译与机器转录错误的同步复现）；1 组存在内容对应但需进一步核实；
+  16 组在现有来源库中未发现对应，因来源库覆盖有限，标注为"暂未发现"而非排除。</p>
+  <p><b>声明。</b>本页不构成法律结论，不对当事人作动机推断。所列均为文本对照事实，
+  是否构成抄袭或洗稿，请读者依据材料自行判断。</p>
+</section>
+
+<div class="stats">
+  <div class="c"><div class="n">38</div><div class="l">比对记录</div></div>
+  <div class="c"><div class="n match">10</div><div class="l">高度吻合</div></div>
+  <div class="c"><div class="n echo">1</div><div class="l">存在对应·待核实</div></div>
+  <div class="c"><div class="n partial">2</div><div class="l">部分吻合</div></div>
+  <div class="c"><div class="n trace">5</div><div class="l">来源待定位</div></div>
+  <div class="c"><div class="n none">16</div><div class="l">暂未发现</div></div>
+  <div class="c"><div class="n ok">2</div><div class="l">署名完整</div></div>
+</div>
+
+<section class="sec">
+  <div class="sec-h"><h2>比对方法说明</h2><span>判级标准与核验流程</span></div>
+  <div class="methods">
+    <div class="row"><div class="k">高度吻合</div><div class="v">指以下任一情形：连续语句可逐句对译；
+      原文特有错误（如机器转录将 corps 误作 court）在中文中同步出现；三处以上独立细节
+      （数字、轶事、比喻、玩笑）以相同顺序出现。</div></div>
+    <div class="row"><div class="k">部分吻合</div><div class="v">存在个别细节对应或结构相似，
+      但独立出现的可能性尚未完全排除。</div></div>
+    <div class="row"><div class="k">存在对应·待核实</div><div class="v">内容主体与某书籍章节同构，
+      且存在口头提及书名而书面未标注的情形；待获取书籍全文逐句核对后定级。</div></div>
+    <div class="row"><div class="k">来源待定位</div><div class="v">结构疑似有源，但现有七家境外
+      播客库中均未发现指纹对应；推测来源为书籍或未入库节目。</div></div>
+    <div class="row"><div class="k">暂未发现</div><div class="v">现有候选来源中未发现对应指纹。
+      因来源库覆盖有限，不排除存在未发现的其他来源，故不使用"排除"表述。</div></div>
+    <div class="row"><div class="k">核验流程</div><div class="v">每条对应关系经三个环节：
+      （一）双语转录并逐项比对细节；（二）由独立语言模型（不参与判级）评估两段文本
+      独立出现的可能性，结果原样刊出；（三）音频原始链接与转录稿校验和一并公布，
+      供第三方复核。语音识别产生的错别字原样保留，不作修饰。</div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-h"><h2>比对记录索引</h2><span>标注「新核查」者为此前社区讨论未涉及、由本项目首次提出的比对</span></div>
+  <table class="toc">
+    <tr><th>编号</th><th>期</th><th>节目标题</th><th>对照来源</th><th>间隔</th><th>结论</th></tr>
+    <tr><td class='nu'><a href='#P234'>P234</a></td><td class='nu'>234</td><td><a href='#P234'>234-让俄国成为世界强国的彼得大帝是一个怎样的统治者？</a></td><td>The Rest Is History</td><td class='nu'>59 天</td><td><span class='st match'>高度吻合</span><span class="mk">新</span></td></tr><tr><td class='nu'><a href='#P311'>P311</a></td><td class='nu'>311</td><td><a href='#P311'>311-西方年轻人如何在70年代发明了极端恐怖主义？</a></td><td>Breaking History</td><td class='nu'>4 天</td><td><span class='st match'>高度吻合</span><span class="mk">新</span></td></tr><tr><td class='nu'><a href='#P353'>P353</a></td><td class='nu'>353</td><td><a href='#P353'>353-民主党建制派为何被一群纽约社会主义者打得节节败退？</a></td><td>Breaking History</td><td class='nu'>15 天</td><td><span class='st partial'>部分吻合</span><span class="mk">新</span></td></tr><tr><td class='nu'><a href='#P205'>P205</a></td><td class='nu'>205</td><td><a href='#P205'>205-法国大革命如何从追求自由走向血腥恐怖统治？</a></td><td>The Rest Is History</td><td class='nu'>44 天</td><td><span class='st trace'>来源待定位</span><span class="mk">新</span></td></tr><tr><td class='nu'><a href='#P310'>P310</a></td><td class='nu'>310</td><td><a href='#P310'>310-刚被斩首的伊朗伊斯兰政权如何在1979年掌权？</a></td><td>Breaking History</td><td class='nu'>206 天</td><td><span class='st match'>高度吻合</span></td></tr><tr><td class='nu'><a href='#P058'>P058</a></td><td class='nu'>58</td><td><a href='#P058'>58-企业应该在政治问题上表态吗？</a></td><td>Chris Rufo《America&#x27;s Cultu</td><td class='nu'></td><td><span class='st match'>高度吻合</span></td></tr><tr><td class='nu'><a href='#P096'>P096</a></td><td class='nu'>96</td><td><a href='#P096'>96-为何法国文化如此进步、法国政治却如此保守？</a></td><td>The Rest Is History</td><td class='nu'>840 天</td><td><span class='st match'>高度吻合</span></td></tr><tr><td class='nu'><a href='#P101'>P101</a></td><td class='nu'>101</td><td><a href='#P101'>101-法国为什么没有成为一个马克思主义国家？</a></td><td>The Rest Is History</td><td class='nu'>396 天</td><td><span class='st match'>高度吻合</span></td></tr><tr><td class='nu'><a href='#P105'>P105</a></td><td class='nu'>105</td><td><a href='#P105'>105-DEI理论背后的新左翼如何颠覆并改造了当今美国大学？</a></td><td>Chris Rufo《America&#x27;s Cultu</td><td class='nu'></td><td><span class='st match'>高度吻合</span></td></tr><tr><td class='nu'><a href='#P242'>P242</a></td><td class='nu'>242</td><td><a href='#P242'>242-托尔斯泰如何结合柏拉图和卢梭对抗黑格尔？</a></td><td>Donna Orwin《Tolstoy&#x27;s Art </td><td class='nu'></td><td><span class='st match'>高度吻合</span></td></tr><tr><td class='nu'><a href='#P266'>P266</a></td><td class='nu'>266</td><td><a href='#P266'>266-陀思妥耶夫斯基和托尔斯泰如何继承卢梭的儿童？</a></td><td>Donna Orwin《Consequences o</td><td class='nu'></td><td><span class='st match'>高度吻合</span></td></tr><tr><td class='nu'><a href='#P316'>P316</a></td><td class='nu'>316</td><td><a href='#P316'>316-陀思妥耶夫斯基如何成为俄国第一位职业作家？</a></td><td>《The Cambridge Companion t</td><td class='nu'></td><td><span class='st match'>高度吻合</span></td></tr><tr><td class='nu'><a href='#P123'>P123</a></td><td class='nu'>123</td><td><a href='#P123'>123-断头台为何是平等和民主的象征？</a></td><td>The Rest Is History</td><td class='nu'>8 天</td><td><span class='st echo'>存在对应·待核实</span></td></tr><tr><td class='nu'><a href='#P356'>P356</a></td><td class='nu'>356</td><td><a href='#P356'>356-智能手机是否正在造成全球生育率断崖式下降</a></td><td>NBER Working Paper 35310《I</td><td class='nu'></td><td><span class='st partial'>部分吻合·归属不完整</span></td></tr><tr><td class='nu'><a href='#P257'>P257</a></td><td class='nu'>257</td><td><a href='#P257'>257-当代伊朗如何颠覆什叶派伊斯兰？</a></td><td>Empire: World History</td><td class='nu'>69 天</td><td><span class='st trace'>来源待定位</span></td></tr><tr><td class='nu'><a href='#P314'>P314</a></td><td class='nu'>314</td><td><a href='#P314'>314-伊斯兰世界在过去百年面对强大的西方做出了怎样的反思</a></td><td>Breaking History</td><td class='nu'>50 天</td><td><span class='st trace'>来源待定位</span></td></tr><tr><td class='nu'><a href='#P147'>P147</a></td><td class='nu'>147</td><td><a href='#P147'>147-德国为何没变成一个马克思主义国家</a></td><td>The Rest Is History</td><td class='nu'>594 天</td><td><span class='st trace'>来源待定位</span></td></tr><tr><td class='nu'><a href='#P188'>P188</a></td><td class='nu'>188</td><td><a href='#P188'>188-意大利为什么没有成为马克思主义国家？</a></td><td>The Rest Is History</td><td class='nu'>668 天</td><td><span class='st trace'>来源待定位</span></td></tr><tr><td class='nu'><a href='#P044'>P044</a></td><td class='nu'>44</td><td><a href='#P044'>44-智能手机如何影响青少年心理健康？</a></td><td>Jonathan Haidt《The Anxious</td><td class='nu'></td><td><span class='st ok'>署名完整</span></td></tr><tr><td class='nu'><a href='#PFIELD'>PFIELD</a></td><td class='nu'>作者对谈</td><td><a href='#PFIELD'>作者对谈：美国新右翼的崛起（Laura Field）</a></td><td>Know Your Enemy</td><td class='nu'>126 天</td><td><span class='st ok'>署名完整</span></td></tr><tr><td class='nu'><a href='#P103'>P103</a></td><td class='nu'>103</td><td><a href='#P103'>103-黑格尔如何成为了集权专制的背锅侠？</a></td><td>The Rest Is History</td><td class='nu'>717 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P360'>P360</a></td><td class='nu'>360</td><td><a href='#P360'>360-贝多芬是歌颂法国大革命的音乐家吗？</a></td><td>The Rest Is History</td><td class='nu'>579 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P185'>P185</a></td><td class='nu'>185</td><td><a href='#P185'>185-《白鲸》为什么是美国文学的巅峰？</a></td><td>The History of Literature</td><td class='nu'>751 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P237'>P237</a></td><td class='nu'>237</td><td><a href='#P237'>237-陀思妥耶夫斯基会如何书写20世纪？</a></td><td>The History of Literature</td><td class='nu'>2420 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P325'>P325</a></td><td class='nu'>325</td><td><a href='#P325'>325-《洛丽塔》应该被禁吗？</a></td><td>The History of Literature</td><td class='nu'>174 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P275'>P275</a></td><td class='nu'>275</td><td><a href='#P275'>275-哈姆雷特为什么是第一个现代人？</a></td><td>The History of Literature</td><td class='nu'>3421 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P226'>P226</a></td><td class='nu'>226</td><td><a href='#P226'>226-以色列为何要攻击伊朗？</a></td><td>Breaking History</td><td class='nu'>1 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P357'>P357</a></td><td class='nu'>357</td><td><a href='#P357'>357-美国社会主义者会像特朗普接管共和党一样接管民主党吗？</a></td><td>Breaking History</td><td class='nu'>21 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P312'>P312</a></td><td class='nu'>312</td><td><a href='#P312'>312-MAGA阵营内部为何对特朗普袭击伊朗感到不满</a></td><td>The Rest Is History</td><td class='nu'>40 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P225'>P225</a></td><td class='nu'>225</td><td><a href='#P225'>225-墨索里尼是一个怎样的法西斯</a></td><td>The Rest Is History</td><td class='nu'>1099 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P084'>P084</a></td><td class='nu'>84</td><td><a href='#P084'>84-英国大选选了个啥？</a></td><td>The Rest Is History</td><td class='nu'>146 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P304'>P304</a></td><td class='nu'>304</td><td><a href='#P304'>304-沙特阿拉伯过去十年在进行一场怎样的政治改革？</a></td><td>Empire: World History</td><td class='nu'>1042 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P354'>P354</a></td><td class='nu'>354</td><td><a href='#P354'>354-北美13个殖民地为什么能够战胜18世纪最强大的帝国？</a></td><td>Empire: World History</td><td class='nu'>767 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P283'>P283</a></td><td class='nu'>283</td><td><a href='#P283'>283-美国为何把支持以色列作为一种政策立场？</a></td><td>Empire: World History</td><td class='nu'>86 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P102'>P102</a></td><td class='nu'>102</td><td><a href='#P102'>102-自由主义咋在赢了冷战后迅速变成了人人嫌的过街老鼠？</a></td><td>Know Your Enemy</td><td class='nu'>357 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#P329'>P329</a></td><td class='nu'>329</td><td><a href='#P329'>329-20世纪美国托洛茨基派怎么都变成了保守派？</a></td><td>Know Your Enemy</td><td class='nu'>19 天</td><td><span class='st none'>暂未发现</span></td></tr><tr><td class='nu'><a href='#PATTR'>PATTR</a></td><td class='nu'>—</td><td><a href='#PATTR'>Shownotes 标注行为分析（17期横断）</a></td><td>（行为记录）</td><td class='nu'></td><td><span class='st act'>行为记录</span></td></tr><tr><td class='nu'><a href='#P312R'>P312R</a></td><td class='nu'>312</td><td><a href='#P312R'>312-MAGA阵营内部为何对特朗普袭击伊朗感到不满</a></td><td>The Rest Is Politics: US</td><td class='nu'>2 天</td><td><span class='st act'>行为记录</span></td></tr>
+  </table>
+</section>
+
+<section class="sec">
+  <div class="sec-h"><h2>比对记录全文</h2><span>左：来源文本 · 右：中文转录稿（识别错字原样保留）</span></div>
+  
+<article class="rec" id="P234">
+  <div class="rec-top">
+    <span><span class="st match">高度吻合</span><span class="mk">新核查</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 59 天</span>
+  </div>
+  <h3>234-让俄国成为世界强国的彼得大帝是一个怎样的统治者？</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《Peter the Great: The Rise of Russia (Part 1)》；The Rest Is History《Peter the Great: Bloodbath in the Kremlin (Part 2)》；Empire: World History《74. Peter the Great: The First Emperor》</div>
+  <div class="meta">本期：第234期 · Sun, 06 Jul 2025 20:28<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/686ad83593fd2d72b8d5bd69/media.xyzcdn.net/64acd33c7a3d479103fbd32d/ltuujs6N4c1RgdtTEBOaugHuWurQ.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/686ad83593fd2d72b8d5bd69/med</a> <span class='ck'>[转录稿 sha256:9917e806a4a39304]</span><br>来源：The Rest Is History《Peter the Great: The Rise of Russia (Part 1)》 · Sun, 04 May 2025 23:05<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT5535116202.mp3?updated=1746448094">https://pdst.fm/e/traffic.megaphone.fm/GLT5535116202.mp3?updated=1746448094</a> <span class='ck'>[转录稿 sha256:262011bf53374610]</span><br>来源：The Rest Is History《Peter the Great: Bloodbath in the Kremlin (Part 2)》 · Wed, 07 May 2025 23:05<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT4388388819.mp3?updated=1784112362">https://pdst.fm/e/traffic.megaphone.fm/GLT4388388819.mp3?updated=1784112362</a> <span class='ck'>[转录稿 sha256:7b25c542fc5ef7c5]</span><br>来源：Empire: World History《74. Peter the Great: The First Emperor》 · Thu, 24 Aug 2023 01:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT1639436569.mp3?updated=1703675925">https://pdst.fm/e/traffic.megaphone.fm/GLT1639436569.mp3?updated=1703675925</a> <span class='ck'>[转录稿 sha256:939e51edadd63743]</span></div>
+  <div class="lvl"><b>判定说明</b>　E3 数字指纹+双源编译　发现途径：本项目初筛发现（社群未覆盖）</div>
+  
+<div class="ev">
+  <span class="ty">E3 数字指纹（Empire独有）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>he calls himself Peter Mikhailov as a pseudonym... they set off with 250 people in the entourage</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>彼得以一个叫做彼得米哈伊洛夫的化名随行二百五十个人启程</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 低；直译对应程度 7/10。原文和转录文本在结构和内容上高度相似，但存在一些词汇的替换和顺序调整。</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">E3 独特轶事（Empire独有）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>he wanted to bite the dead body and he made all his entourage including peter tolstoy bite the body</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>强迫同伴用牙齿去咬尸体肌肉</div>
+  </div>
+  
+  
+</div>
+<div class="ev">
+  <span class="ty">E3 细节（Empire）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>march down to the sea of azov... take the ottoman fortress of azov</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>一六九五年第一次进攻失败但是一年之后…攻下亚速港（1695败/1696胜两役）</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 低；直译对应程度 2/10。原文中的专有名词和动词短语在中文转录中得到了保留，但中文转录中加入了时间信息和额外的描述，导致直译对应强度不高。</div>
+  
+</div>
+  <div class="basis"><div class="b">判定依据：E3 数字指纹+双源编译</div></div>
+  
+</article>
+<article class="rec" id="P311">
+  <div class="rec-top">
+    <span><span class="st match">高度吻合</span><span class="mk">新核查</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 4 天</span>
+  </div>
+  <h3>311-西方年轻人如何在70年代发明了极端恐怖主义？</h3>
+  <div class="to">题材相近的境外出处：Breaking History《Modern Terrorism Was Born in the 1970s》；Jason Burke《The Revolutionists: The Story of the Extremists Who Hijacked the 1970s》(2026)《BH 该集嘉宾即作者 Burke 的访谈》</div>
+  <div class="meta">本期：第311期 · Sun, 01 Mar 2026 19:22<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69a48f5e66e2c30377e72c66/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lsjqLizDwuAKn5DTxup-uBV1HSx-.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69a48f5e66e2c30377e72c66/med</a> <span class='ck'>[转录稿 sha256:c0510fe817c2bcc7]</span><br>来源：Breaking History《Modern Terrorism Was Born in the 1970s》 · Wed, 25 Feb 2026 10:00<br><a href="https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic.megaphone.fm/CBS3133558080.mp3?updated=1772001695">https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic</a> <span class='ck'>[转录稿 sha256:41d6c3a846be8e5a]</span><br>来源：Jason Burke《The Revolutionists: The Story of the Extremists Who Hijacked the 1970s》(2026)《BH 该集嘉宾即作者 Burke 的访谈》 · 书 2026-02 / BH 2026-02<br>（书籍／文献，无公开音频）</div>
+  <div class="lvl"><b>判定说明</b>　E3 多指纹（6+独特细节直译）+ 全库最快周转4天　发现途径：本项目 R5 BH 全库反向扫描发现（社群未覆盖）</div>
+  
+<div class="ev">
+  <span class="ty">E3 独特细节直译（Burn-Murdoch式书内容）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Burke(BH访谈): &#x27;they go underground they burn their passports and they just disappear in the middle of cities in western europe and stay disappeared for months even years&#x27;</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>革命者真的可以潜入地下完全消失只要你焚烧自己的护照就可以在最繁华的西方城市中心消失数月甚至数年 书中记载的有一些人至今仍然下落不明</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 6/10。原文和转录文本在内容上高度相似，都提到了‘地下潜行’、‘焚烧护照’、‘消失在西方城市’以及‘数月甚至数年’的消失时间。尽管中文转录中存在一些词汇顺序和用词上的差异，但整体意思保持一致。</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">E3 场景复制（1977 RAF 狱中通牒）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Burke: &#x27;their leaders have said if you do not get us out or do an attack that might get us out within two weeks then we&#x27;ll take matters into our own hands which implied that they were either going to commit suicide or they would launch some kind of…&#x27;</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>在狱中领导人向外部成员传话说如果你们不在两周内发动一次足以迫使政府交换人质释放我们的重大行动 他们这些领导人就将自己采取行动这等于是一种威胁就他们可能会在监狱中自杀或者是发动某种绝望的暴力行动</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 6/10。原文和转录文本在内容上高度相似，都提到了领导人的威胁、两周的时间限制以及可能的自杀或暴力行动。然而，中文转录文本中存在一些词汇和句式上的差异，如‘狱中领导人’、‘重大行动’、‘绝望的暴力行动’等，这些差异可能源于ASR错别字或翻译者的理解。</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">E3 细节组</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Burke: 无公关的记者接触/科隆安全屋彻夜争论&#x27;杀死无产阶级保镖&#x27;悖论/荷兰-德国激进者互厌/Carlos外号来自假护照名+《豺狼的日子》/基辛格-尼克松无计可施</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>以上全部逐条对应出现（&#x27;没有公关人员没有媒体顾问&#x27;/&#x27;要杀的保镖在他们词汇中是无产阶级&#x27;/&#x27;德国人认为荷兰人搞革命是业余的&#x27;/&#x27;记者拿着假护照名字…豺狼的日子…拼凑外号&#x27;/&#x27;基辛格和尼克松…什么都做不了&#x27;）</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 7/10。大部分关键信息点在两个文本中都有对应，但存在一些词汇上的差异和表达方式的不同。</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">归属行为（口头提及/书面零标注）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>BH: Eli Lake 采访作者 Jason Burke 谈其新书</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>311 口头说&#x27;这是我读的那本历史书…作者叫做jason bur 这本书叫做the revolutionists&#x27;，但 shownotes 零 reference</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 低；直译对应程度 2/10。虽然中文转录中提到了作者名字和书名，但原文中提到了作者被采访的情境（Eli Lake 采访作者 Jason Burke 谈其新书），而中文转录中并没有提及采访者或采访的情境，只是简单提到了作者和书名。此外，中文转录中存在可能的ASR错别字（</div>
+  <div class="nt">比58/96/101的完全零提及进一步：口头含糊提过一次书名作者（ASR: jason bur），书面不署名。全库最快周转：BH 2026-02-25 → 311 2026-03-01（4天）。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：E3 多指纹（6+独特细节直译）+ 全库最快周转4天</div></div>
+  
+</article>
+<article class="rec" id="P353">
+  <div class="rec-top">
+    <span><span class="st partial">部分吻合</span><span class="mk">新核查</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 15 天</span>
+  </div>
+  <h3>353-民主党建制派为何被一群纽约社会主义者打得节节败退？</h3>
+  <div class="to">题材相近的境外出处：Breaking History《How the Democratic Socialists Conquered New York City》</div>
+  <div class="meta">本期：第353期 · Thu, 16 Jul 2026 03:09<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6a584a68a4972c496dfc9610/media.xyzcdn.net/64acd33c7a3d479103fbd32d/llOzE6T0Tfv9pkaER3cNzfDa5DQj.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6a584a68a4972c496dfc9610/med</a> <span class='ck'>[转录稿 sha256:b0079fa3d2c04403]</span><br>来源：Breaking History《How the Democratic Socialists Conquered New York City》 · Tue, 30 Jun 2026 09:00<br><a href="https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic.megaphone.fm/CBS8251508130.mp3">https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic</a> <span class='ck'>[转录稿 sha256:9a93fec10e65dfbd]</span></div>
+  <div class="lvl"><b>判定说明</b>　E3 单轶事复制+结构对应　发现途径：本项目初筛发现（社群未覆盖）</div>
+  
+<div class="ev">
+  <span class="ty">E3 轶事复制</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>on election day she wins there&#x27;s a recount and she loses by a few dozen ballots to this woman melinda katz（Tiffany Cabán 2019皇后区检察官选举）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>tiffany卡on参选…最后以只以几十票之差落选…这场失败足以证明建制机器远比想象中要来的脆弱（同样作为&#x27;早期预警&#x27;使用）</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 低；直译对应程度 2/10。原文和转录文本都提到了选举、失败和Melinda Katz，但转录文本中加入了评论和解释，直译对应强度较低。</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">E2 结构对照</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>knocking on doors 关系动员 vs 大额捐款广告; 低投票率初选机制</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>DSA大规模志愿者敲门组织…建制派习惯大额捐款购买广告…低投票率的党内初选组织严密少数群体影响远超人口比例</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 3/10。原文中的关键词汇和概念在中文转录中得到了保留，但表达方式和结构有所不同。</div>
+  
+</div>
+  <div class="basis"><div class="b">判定依据：E3 单轶事复制+结构对应</div></div>
+  <div class="cav">同一新闻事件多源报道存在；Cabán轶事亦见其他报道。待逐段结构比对后定级。</div>
+</article>
+<article class="rec" id="P205">
+  <div class="rec-top">
+    <span><span class="st trace">来源待定位</span><span class="mk">新核查</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 44 天</span>
+  </div>
+  <h3>205-法国大革命如何从追求自由走向血腥恐怖统治？</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《The French Revolution: The September Massacres (Part 1)》；The Rest Is History《The French Revolution: War to the Death (Part 2)》</div>
+  <div class="meta">本期：第205期 · Wed, 16 Apr 2025 16:58<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/67ffe1771f1db84a56bcd274/media.xyzcdn.net/64acd33c7a3d479103fbd32d/llE1pcQFGZ-bjboHALfLonkhBXHq.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/67ffe1771f1db84a56bcd274/med</a> <span class='ck'>[转录稿 sha256:12750ff3f16455bf]</span><br>来源：The Rest Is History《The French Revolution: The September Massacres (Part 1)》 · Mon, 03 Mar 2025 00:10<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT8301042051.mp3?updated=1740758267">https://pdst.fm/e/traffic.megaphone.fm/GLT8301042051.mp3?updated=1740758267</a> <span class='ck'>[转录稿 sha256:56165c633699839e]</span><br>来源：The Rest Is History《The French Revolution: War to the Death (Part 2)》 · Wed, 16 Oct 2024 23:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT3201191708.mp3?updated=1729780213">https://pdst.fm/e/traffic.megaphone.fm/GLT3201191708.mp3?updated=1729780213</a> <span class='ck'>[转录稿 sha256:f41900ac68b3139d]</span></div>
+  <div class="lvl"><b>判定说明</b>　E1+E2 主题结构相似；E3 未命中　发现途径：本项目初筛发现（0.750，社群未覆盖）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>TRIH 稿含：du Barry/朗巴勒王妃之死、布伦瑞克宣言、瑞士卫队、联省义勇军——205 均无</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>205 含：罗伯斯庇尔人格分析（vs 潘恩/丹东/马拉）、&#x27;驾驭愤怒群众这头猛兽&#x27;隐喻、无套裤汉——TRIH 两稿均无（Robespierre/Marat/Danton/sans-culottes 零命中）</div>
+  </div>
+  
+  <div class="nt">两侧独特指纹互不重叠→非直接翻译关系。205 的罗伯斯庇尔叙事疑来自专著（如 Tackett/Scurr 类传记），源未定位。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：E1+E2 主题结构相似；E3 未命中</div></div>
+  <div class="cav">初筛 0.750 为主题重叠所致假阳性；真实源待书籍检索通道建立后复查。</div>
+</article>
+<article class="rec" id="P310">
+  <div class="rec-top">
+    <span><span class="st match">高度吻合</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 206 天</span>
+  </div>
+  <h3>310-刚被斩首的伊朗伊斯兰政权如何在1979年掌权？</h3>
+  <div class="to">题材相近的境外出处：Breaking History《Restless Nation | The Red-Green Alliance: The Making of Modern Iran (Part 2)》</div>
+  <div class="meta">本期：第310期 · Sun, 01 Mar 2026 00:45<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69a3880766e2c30377cdb1fa/media.xyzcdn.net/64acd33c7a3d479103fbd32d/loLGTDec8XbPkp3jxYCg-d751tWm.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69a3880766e2c30377cdb1fa/med</a> <span class='ck'>[转录稿 sha256:97ab1ed9c9c78ea4]</span><br>来源：Breaking History《Restless Nation | The Red-Green Alliance: The Making of Modern Iran (Part 2)》 · Wed, 06 Aug 2025 08:30<br><a href="https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic.megaphone.fm/RUNMED1688067909.mp3?updated=1754468480">https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic</a></div>
+  <div class="lvl"><b>判定说明</b>　E4 错误传播　发现途径：豆瓣 497064074（310期实锤帖）</div>
+  
+<div class="ev">
+  <span class="ty">E4 错误传播（机器转录错误被直译）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>health corps, literacy corps（卫生服务队、扫盲队；Apple/PodScript 机器转录误作 court）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>伊朗国王设立了完整的法庭包括卫生法庭和扫盲法庭……把扫盲法庭从首都德黑兰派到农村</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 2/10。原文中的&#x27;health corps&#x27;和&#x27;litarcy corps&#x27;与播客转录中的&#x27;卫生法庭&#x27;和&#x27;扫盲法庭&#x27;在概念上对应，但具体翻译存在差异，且播客转录中出现了可能的ASR错别字，增加了两者独立出现的可能性。</div>
+  <div class="nt">历史上不存在&#x27;卫生法庭/扫盲法庭&#x27;。该词只能来自对机器转录稿 corps→court 错误的照单翻译。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：E4 错误传播</div></div>
+  
+</article>
+<article class="rec" id="P058">
+  <div class="rec-top">
+    <span><span class="st match">高度吻合</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 </span>
+  </div>
+  <h3>58-企业应该在政治问题上表态吗？</h3>
+  <div class="to">题材相近的境外出处：Chris Rufo《America&#x27;s Cultural Revolution》《第8-9章》</div>
+  <div class="meta">本期：第58期 · Wed, 08 May 2024 21:03<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/663be884eedd4434f40198f8/media.xyzcdn.net/liyGnqMIgzaf5QWRNoull_npYOjS.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/663be884eedd4434f40198f8/med</a> <span class='ck'>[转录稿 sha256:c754a53d7f4e1b76]</span><br>来源：Chris Rufo《America&#x27;s Cultural Revolution》《第8-9章》 · 书, 2023<br>（书籍／文献，无公开音频）</div>
+  <div class="lvl"><b>判定说明</b>　E5 逐句直译　发现途径：豆瓣 496745562（汇总帖）</div>
+  
+<div class="ev">
+  <span class="ty">E5 核心句直译</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>The great innovation of Black Lives Matter was not political, but linguistic.</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>黑命贵运动的伟大创新不是政治上的……他的伟大创新是语言上的</div>
+  </div>
+  
+  
+</div>
+<div class="ev">
+  <span class="ty">E5 论证措辞直译</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>engage &quot;guilt and shame rather than anger and fear&quot;, adopting a &quot;therapeutic rather than militant tone&quot;</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>六十年代的黑人运动领导人寻求调动底层黑人男性的愤怒和恐惧，当今黑人运动的领导人成功调动的是白人精英的内疚和羞愧……采取了治疗性而非激进的语气</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 4/10。原文和译文都提到了情感和语气的对比，但具体情感和语气描述有所不同，存在一定程度的对应关系，但并非完全一致。</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">E3 论据选择</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Skeptic Research Center 调查</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>二零二一年美国有一个智库 skeptic research center 做了…</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 低；直译对应程度 5/10。原文和转录文本都提到了Skeptic Research Center，但中文转录中包含数字和中文表达，直译对应强度为中等。</div>
+  
+</div>
+  <div class="basis"><div class="b">判定依据：E5 逐句直译</div></div>
+  
+</article>
+<article class="rec" id="P096">
+  <div class="rec-top">
+    <span><span class="st match">高度吻合</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 840 天</span>
+  </div>
+  <h3>96-为何法国文化如此进步、法国政治却如此保守？</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《French Presidents: 1958-1981 (Part 1)》；The Rest Is History《French Presidents: 1981-2022 (Part 2)》</div>
+  <div class="meta">本期：第96期 · Wed, 14 Aug 2024 00:23<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/66bbf911db5e6d6bf919b987/media.xyzcdn.net/lhz_SfrqxXJpFz1DDxIvDaQ6YSfC.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/66bbf911db5e6d6bf919b987/med</a> <span class='ck'>[转录稿 sha256:f13b91c1fa902247]</span><br>来源：The Rest Is History《French Presidents: 1958-1981 (Part 1)》 · Mon, 25 Apr 2022 01:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT1396593896.mp3?updated=1777394918">https://pdst.fm/e/traffic.megaphone.fm/GLT1396593896.mp3?updated=1777394918</a> <span class='ck'>[转录稿 sha256:744794a7af3669a5]</span><br>来源：The Rest Is History《French Presidents: 1981-2022 (Part 2)》 · Tue, 26 Apr 2022 01:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT2206497694.mp3?updated=1777394784">https://pdst.fm/e/traffic.megaphone.fm/GLT2206497694.mp3?updated=1777394784</a> <span class='ck'>[转录稿 sha256:c9469a34d975b3ff]</span></div>
+  <div class="lvl"><b>判定说明</b>　E3 素材链+笑点复制　发现途径：豆瓣 496745562（汇总帖）</div>
+  
+<div class="ev">
+  <span class="ty">E3 主持人玩笑整句直译</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>he sees britain&#x27;s special relationship with the united states or slavish dependency with the united states depending on what you prefer</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>不管你是把这种特殊关系定义为安格鲁萨克逊人的英美友谊，还是陨灭的老帝国对崛起的新帝国的奴性依赖和跪舔</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 3/10。原文和转录文本都表达了英国与美国之间关系的两种不同看法，但使用了不同的比喻和词汇。</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">E3 笑点复制</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>he&#x27;s most famous for having his intestines on the outside... the great kind of museum of modern art（讲蓬皮杜先想到博物馆）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>接下来我们就来到了大家都听过的一个名字但是不是因为他是总统而是因为他是一个博物馆</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 低；直译对应程度 2/10。原文中提到了‘most famous for’和‘the great kind of museum of modern art’，而中文转录中虽然未直接提及这些词汇，但提到了‘大家都听过的一个名字’和‘博物馆’，暗示了原文中的著名度和博物馆</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">E3 素材链同序</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>he builds paris so the pyramid in the louvre... he blew the rainbow warrior（密特朗：卢浮宫金字塔→文化工程→炸彩虹勇士号）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>卢浮宫前面的那金字塔→奥塞博物馆→法国总统很在乎文化项目→炸了这个彩虹勇士号</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 3/10。两者都提到了卢浮宫金字塔和文化项目，但具体细节和顺序有所不同。</div>
+  
+</div>
+  <div class="basis"><div class="b">判定依据：E3 素材链+笑点复制</div></div>
+  
+</article>
+<article class="rec" id="P101">
+  <div class="rec-top">
+    <span><span class="st match">高度吻合</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 396 天</span>
+  </div>
+  <h3>101-法国为什么没有成为一个马克思主义国家？</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《Paris 1968: The Students&#x27; Revolt》；The Rest Is History《Paris 1968: The Return of De Gaulle》</div>
+  <div class="meta">本期：第101期 · Mon, 26 Aug 2024 02:03<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/66cbe28bead5fc379266493a/media.xyzcdn.net/lrL__Xv7k-oiTvDOkKRdes6aBQ7g.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/66cbe28bead5fc379266493a/med</a> <span class='ck'>[转录稿 sha256:946d6b71e42de2ae]</span><br>来源：The Rest Is History《Paris 1968: The Students&#x27; Revolt》 · Mon, 24 Jul 2023 01:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT6124707164.mp3?updated=1729782201">https://pdst.fm/e/traffic.megaphone.fm/GLT6124707164.mp3?updated=1729782201</a> <span class='ck'>[转录稿 sha256:d4eaed3700f7bad9]</span><br>来源：The Rest Is History《Paris 1968: The Return of De Gaulle》 · Thu, 27 Jul 2023 01:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT6246374874.mp3?updated=1729782223">https://pdst.fm/e/traffic.megaphone.fm/GLT6246374874.mp3?updated=1729782223</a> <span class='ck'>[转录稿 sha256:0459daefefa4d8aa]</span></div>
+  <div class="lvl"><b>判定说明</b>　E3 独特细节链 + LLM段落对齐 18/20（R3升级：项目独立验证）　发现途径：豆瓣 496745562（汇总帖）指控 → 本项目 R3 指纹级验证</div>
+  
+<div class="ev">
+  <span class="ty">E5 细节+引述直译</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>his wife Yvonne is in floods of tears she thinks they&#x27;re going to be lynched they&#x27;re going to be guillotined... his biographer Julian Jackson says he spends the night in a state of, and I quote, apocalyptic despair</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>戴高乐的妻子泪流满面他坚信他们全家会被私刑处死被法国共产党员送上断头台…他的传记作者说戴高乐一整晚都处于一种世界末日般的绝望状态中</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 高；直译对应程度 0/10。原文中提到的是‘双侧转录稿已入库，逐段对齐表待补’，而中文播客转录中提到的是‘同上’，两者内容完全不同，因此直译对应强度为0。由于原文和转录内容差异较大，两者独立出现的可能性较高。</div>
+  <div class="nt">同一细节（妻子哭泣怕私刑+断头台）+ 同一传记引述（apocalyptic despair→世界末日般的绝望）。</div>
+</div>
+<div class="ev">
+  <span class="ty">E5 分析性论证复制</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>crucially he doesn&#x27;t speak on TV so he&#x27;s speaking on radio as he had done in nineteen forty from except London... they hear the voice they associate with broadcast from London resistance... it&#x27;s a very short speech... four minutes the brevity is important</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>戴高乐没有选择电视讲话他选择的是一个全国广播演讲…戴高乐就是在一九四零年…在伦敦用演讲…这一次同样的通过广播而不是电视…第三点…这是一个四分钟的演讲戴高乐的演讲极其简洁而精确</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 6/10。两段文本都提到了戴高乐选择广播而非电视讲话，以及他在1940年在伦敦的演讲。此外，两段文本都强调了演讲的简洁性，提到了四分钟的时长。然而，中文转录中存在一些差异，如‘全国广播演讲’和‘戴高乐的演讲极其简洁而精确’与原文的表述不完全一致。</div>
+  <div class="nt">『三个聪明决策』框架（时机/广播而非电视/简短）连同 1940 伦敦广播的历史联想整体复制，含 &#x27;four minutes→四分钟&#x27; 数字。</div>
+</div>
+<div class="ev">
+  <span class="ty">E3 事件链</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>go to Baden-Baden to the french forces in Baden-Baden over the border in west germany（直升机赴德+获法军保证）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>戴高乐的直升机降落到了德国的巴登巴登军用机场…和法国军队的将军马苏德会面并且得到了这个将军的保证那就是法国军队将会忠于戴高乐</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 低；直译对应程度 4/10。原文中提到了‘go to Baden-Baden’和‘the french forces in Baden-Baden’与中文转录中的‘戴高乐的直升机降落到了德国的巴登巴登军用机场’和‘法国军队的将军马苏德’相对应，表明了地点和人物的一致性</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">E2 顺序对应（LLM对齐）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>TRIH Students&#x27; Revolt → Return of De Gaulle 叙事弧</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>101 第2-14段按序对应：索邦→警察暴力→5月7游行→工人加入→罢工谈判→5月28绝望→巴登→5月30演讲→反游行（glm-4-flash 对齐 18/20 段高/中置信，evidence/align101_llm.json）</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 5/10。虽然中文转录中包含了一些技术细节（如glm-4-flash 对齐、置信度等），但整体上，文本内容与英文源文本的对应关系较为紧密，描述了相同的事件和叙事弧。中文转录中缺少了一些英文源文本中的具体信息，如&#x27;TRIH Students&#x27; Revo</div>
+  
+</div>
+  <div class="basis"><div class="b">判定依据：E3 独特细节链 + LLM段落对齐 18/20（R3升级：项目独立验证）</div></div>
+  
+</article>
+<article class="rec" id="P105">
+  <div class="rec-top">
+    <span><span class="st match">高度吻合</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 </span>
+  </div>
+  <h3>105-DEI理论背后的新左翼如何颠覆并改造了当今美国大学？</h3>
+  <div class="to">题材相近的境外出处：Chris Rufo《America&#x27;s Cultural Revolution》《全书（DEI/法兰克福学派叙事）》</div>
+  <div class="meta">本期：第105期 · Tue, 03 Sep 2024 19:16<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/66d7608b5a91beebb39ad6d4/media.xyzcdn.net/lrKKfeO9vAxJhEAefi_OsmFLVi37.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/66d7608b5a91beebb39ad6d4/med</a> <span class='ck'>[转录稿 sha256:f31dd984f964f87a]</span><br>来源：Chris Rufo《America&#x27;s Cultural Revolution》《全书（DEI/法兰克福学派叙事）》 · 书, 2023<br>（书籍／文献，无公开音频）</div>
+  <div class="lvl"><b>判定说明</b>　E1-E5（同源论证; 58期佐证同一书的逐句复制模式）　发现途径：翻电主播指控（豆瓣汇总帖引）；仲树否认</div>
+  
+<div class="ev">
+  <span class="ty">E2 同书叙事框架</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Rufo: DEI ← 法兰克福学派 ← Marcuse 链条</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>经过法兰克福学派重新包装…Marcuse语言上的过滤（与58期同一包装方式）</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 低；直译对应程度 3/10。原文中的&#x27;鲁弗：DEI ← 法兰克福学派 ← 马库塞链条&#x27;与中文转录的&#x27;经过法兰克福学派重新包装…马库塞语言上的过滤（与58期同一包装方式）&#x27;在表达上存在相似性，但中文转录中缺少了原文中的具体人名和符号，且存在一些表述上的差异。</div>
+  
+</div>
+  <div class="basis"><div class="b">判定依据：E1-E5（同源论证; 58期佐证同一书的逐句复制模式）</div></div>
+  
+</article>
+<article class="rec" id="P242">
+  <div class="rec-top">
+    <span><span class="st match">高度吻合</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 </span>
+  </div>
+  <h3>242-托尔斯泰如何结合柏拉图和卢梭对抗黑格尔？</h3>
+  <div class="to">题材相近的境外出处：Donna Orwin《Tolstoy&#x27;s Art and Thought, 1847-1880》《第1章》</div>
+  <div class="meta">本期：第242期 · Tue, 29 Jul 2025 01:34<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/688824c38e06fe8de72ee474/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lpCK_VhSQmaKwMh7Yq05kD7kGtja.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/688824c38e06fe8de72ee474/med</a> <span class='ck'>[转录稿 sha256:57583a1b07a1ab17]</span><br>来源：Donna Orwin《Tolstoy&#x27;s Art and Thought, 1847-1880》《第1章》 · 书, 2002<br>（书籍／文献，无公开音频）</div>
+  <div class="lvl"><b>判定说明</b>　E5 框架直译　发现途径：豆瓣评论区（俄国文学指认）</div>
+  
+<div class="ev">
+  <span class="ty">E5 章节核心框架直译</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Orwin ch1: 1850年代黑格尔氛围; 黑格尔左派车尔尼雪夫斯基 vs 右派格里戈利耶夫(Apollon Grigoriev); 辩证法与艺术中理想/现实互动</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>无论是所谓的左派车尔尼雪夫斯基还是右派格里格里耶夫都相信辩证法与艺术中的理想和现实的互动（ASR人名变体：彻尔尼雪夫斯基/格里格里耶夫）</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 7/10。文本内容高度相似，但存在人名和部分词汇的错别字。</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">E5 论证直译</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Orwin: 车尔尼雪夫斯基唯物主义视角批判黑格尔, 追随法国时髦唯物主义</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>车尔尼雪夫斯基从唯物主义的视角来批判黑格尔…他追随的是来自法国的时髦唯物主义伦理和美学</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 5/10。原文和转录文本都提到了车尔尼雪夫斯基、唯物主义、批判黑格尔和追随法国时髦唯物主义，但转录文本增加了‘伦理和美学’这一信息。</div>
+  
+</div>
+  <div class="basis"><div class="b">判定依据：E5 框架直译</div></div>
+  
+</article>
+<article class="rec" id="P266">
+  <div class="rec-top">
+    <span><span class="st match">高度吻合</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 </span>
+  </div>
+  <h3>266-陀思妥耶夫斯基和托尔斯泰如何继承卢梭的儿童？</h3>
+  <div class="to">题材相近的境外出处：Donna Orwin《Consequences of Consciousness》《卢梭/狄更斯之于托、陀 章》</div>
+  <div class="meta">本期：第266期 · Wed, 22 Oct 2025 03:56<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/68f8536c456ffec65ef0663d/media.xyzcdn.net/64acd33c7a3d479103fbd32d/luNywfnfzLhDKRdTNEeayhc-_XNr.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/68f8536c456ffec65ef0663d/med</a> <span class='ck'>[转录稿 sha256:a6749b9e9f41ef6e]</span><br>来源：Donna Orwin《Consequences of Consciousness》《卢梭/狄更斯之于托、陀 章》 · 书<br>（书籍／文献，无公开音频）</div>
+  <div class="lvl"><b>判定说明</b>　E3 材料链　发现途径：豆瓣评论区（俄国文学指认）</div>
+  
+<div class="ev">
+  <span class="ty">E3 材料链复制</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Orwin: 狄更斯《雾都孤儿》奥利弗/《老古玩店》小奈儿 → 陀《被侮辱与被损害的人》女主命名 Nellie → 现实主义深度比较</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>雾都孤尔…奥利弗在苦难中始终天真无邪 古玩店中的小奈儿…妥斯妥耶夫斯基在被侮辱与被损害的人中直接以古玩店的小奈尔为参照 把自己的孤儿女主角命名为netlly（ASR：迪根斯/妥斯妥夫斯基变体）</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 3/10。存在明显的命名和主题对应，但存在一些细节差异和可能的ASR错误</div>
+  
+</div>
+  <div class="basis"><div class="b">判定依据：E3 材料链</div></div>
+  
+</article>
+<article class="rec" id="P316">
+  <div class="rec-top">
+    <span><span class="st match">高度吻合</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 </span>
+  </div>
+  <h3>316-陀思妥耶夫斯基如何成为俄国第一位职业作家？</h3>
+  <div class="to">题材相近的境外出处：《The Cambridge Companion to Dostoevskii》《Dostoevskii as a professional writer 一文》</div>
+  <div class="meta">本期：第316期 · Wed, 11 Mar 2026 02:14<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69b0cbbf2a2882aae76ad2b9/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lr_JLtn-Dw2WXwnDZ8ByKbZyi6N5.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69b0cbbf2a2882aae76ad2b9/med</a> <span class='ck'>[转录稿 sha256:bf70ad676ff19864]</span><br>来源：《The Cambridge Companion to Dostoevskii》《Dostoevskii as a professional writer 一文》 · 书(论文集)<br>（书籍／文献，无公开音频）</div>
+  <div class="lvl"><b>判定说明</b>　E3 叙事要素链　发现途径：豆瓣评论区（俄国文学指认）</div>
+  
+<div class="ev">
+  <span class="ty">E3 数据要素复制</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>该文: 1897年俄国首次识字率统计21%; 审查机构多达12个</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>一直到一八九七年俄罗斯帝国才第一次开始统计大众识字率…识字率也只有百分之二十一 / 俄国的审查机关多达十二个</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 7/10。原文和转录文本在内容上高度一致，但存在一些细微的措辞差异，如‘俄国’和‘俄罗斯帝国’、‘审查机构’和‘审查机关’等，以及一些数字的表述方式。</div>
+  
+</div>
+<div class="ev">
+  <span class="ty">E3 职业叙事要素</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>该文: 1846首部小说→职业作家; 1847彼得堡新闻文化专栏; 翻译/投稿/办刊/连载</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>他在四六年出版了他的第一本小说成为了职业作家…一八四七年开始给彼得堡新闻撰写文化专栏…他学会了谈判合同…参与办刊…维持连载节奏</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 5/10。原文和转录文本内容相似，但存在一些细节差异和表达方式的改变，如年份的表述和部分动词的替换。</div>
+  
+</div>
+  <div class="basis"><div class="b">判定依据：E3 叙事要素链</div></div>
+  
+</article>
+<article class="rec" id="P123">
+  <div class="rec-top">
+    <span><span class="st echo">存在对应·待核实</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 8 天</span>
+  </div>
+  <h3>123-断头台为何是平等和民主的象征？</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《The French Revolution: Bloodbath in Paris (Part 1)》；Paul Friedland《Seeing Justice Done: The Age of Spectacular Capital Punishment in France》（中译《法国壮观死刑史》）《书籍（123 口头明确推荐 &#x27;paul freedland 写的 the age of spectacular capital punishment in france&#x27;）》</div>
+  <div class="meta">本期：第123期 · Tue, 22 Oct 2024 01:52<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6717056a0d2f24f289db23f7/media.xyzcdn.net/lo0MkRk281wPJSQnSQBgIbYJGfQs.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6717056a0d2f24f289db23f7/med</a> <span class='ck'>[转录稿 sha256:b91bac02103ec195]</span><br>来源：The Rest Is History《The French Revolution: Bloodbath in Paris (Part 1)》 · Sun, 13 Oct 2024 23:10<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT8447202194.mp3?updated=1729780235">https://pdst.fm/e/traffic.megaphone.fm/GLT8447202194.mp3?updated=1729780235</a> <span class='ck'>[转录稿 sha256:e197bd33ebc0d762]</span><br>来源：Paul Friedland《Seeing Justice Done: The Age of Spectacular Capital Punishment in France》（中译《法国壮观死刑史》）《书籍（123 口头明确推荐 &#x27;paul freedland 写的 the age of spectacular capital punishment in france&#x27;）》 · 书, 2022<br>（书籍／文献，无公开音频）</div>
+  <div class="lvl"><b>判定说明</b>　E1 主题同域 + 口头荐书而书面零标注　发现途径：本项目 R7 TRIH 反扫发现（0.675，滞后8天）</div>
+  
+<div class="ev">
+  <span class="ty">TRIH 候选源未命中</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>TRIH Bloodbath P1（2024-10-13）：九月屠杀前夜叙事（义勇军/长矛/恐慌），无吉约坦/达米安/断头台平等论</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>123：达米安 1757 处决全程（硫磺烧手/铁钳取肉/沸铅/四马分尸——福柯《规训与惩罚》开篇场景）+ 吉约坦医生&#x27;无痛斩首机器&#x27;提议 + &#x27;人人死而平等&#x27;论 + 绞刑(平民)vs砍头(贵族)等级制 + 吉约坦流行歌</div>
+  </div>
+  
+  <div class="nt">123 自述&#x27;我在这个书中读的&#x27;并口头推荐 Friedland 书——书内容主体复述+口头荐书+书面零标注，与 311(Burke) 模式相同。TRIH 为初筛假阳性。R9 复核：吉约坦&#x27;瞬间砍头感觉不到&#x27;歌词经 Hektoen 等公开史料确认为 Guillotin 传记公共记载（非 Friedland 独创），该条降级为公共史料；升实锤需全书文本逐句比对（达米安细节链/绞刑砍头等级制/断头台平等论在书中的具体表述）。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：E1 主题同域 + 口头荐书而书面零标注</div></div>
+  <div class="cav">Friedland 书全文比对前不定级；TRIH 源暂时排除（未命中其独特指纹）。</div>
+</article>
+<article class="rec" id="P356">
+  <div class="rec-top">
+    <span><span class="st partial">部分吻合·归属不完整</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 </span>
+  </div>
+  <h3>356-智能手机是否正在造成全球生育率断崖式下降</h3>
+  <div class="to">题材相近的境外出处：NBER Working Paper 35310《Is the iPhone Birth Control? Causal Evidence from AT&amp;T&#x27;s 2007-2011 Carrier Monopoly》(2026-06) + FT John Burn-Murdoch 报道(2026-05) + NYT 报道(2026-06-08)《工作论文+媒体报道》</div>
+  <div class="meta">本期：第356期 · Tue, 21 Jul 2026 06:13<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6a5f0a9ea3fec224d5a0e245/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lvOxmRbR2csU2VL0NuueupzMnLDN.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6a5f0a9ea3fec224d5a0e245/med</a> <span class='ck'>[转录稿 sha256:9128fcc9c744a980]</span><br>来源：NBER Working Paper 35310《Is the iPhone Birth Control? Causal Evidence from AT&amp;T&#x27;s 2007-2011 Carrier Monopoly》(2026-06) + FT John Burn-Murdoch 报道(2026-05) + NYT 报道(2026-06-08)《工作论文+媒体报道》 · 2026-05/06<br><a href="https://www.nber.org/papers/w35310">https://www.nber.org/papers/w35310</a></div>
+  <div class="lvl"><b>判定说明</b>　E3 数据框架完整复制；归属不完整　发现途径：本项目 R5 期刊通道核查</div>
+  
+<div class="ev">
+  <span class="ty">E3 数据全套复制</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>NBER w35310 摘要: AT&amp;T 2007–2011 monopoly; reduced births by 4.5–8.0% at ages 15–19 and 3.2–6.6% at ages 20–24; explains 33–52% of the decline in GFR 15–44; Placebo: Verizon and Sprint pre-2011 null</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>356: &#x27;二零零七年六月至二零一一年二月苹果公司和AT&amp;T签订独家合作协议…准自然实验…十五到十九岁…百分之四点五至百分之八…二十至二十四岁…百分之三点二至百分之六点六…百分之三十三至百分之五十二…还利用另外两家…verizon和sprint…安慰剂检验&#x27;（另有128国跨国数据）</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 7/10。文本中包含了关键信息，如时间范围、公司名称、年龄范围、百分比数据以及安慰剂检验的提及，表明两者之间存在较高的对应强度。</div>
+  <div class="nt">论文的全部关键数字（区间端点精确到小数）与方法结构（自然实验/安慰剂/跨国数据）整体复现。</div>
+</div>
+<div class="ev">
+  <span class="ty">归属行为（部分归属）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>FT (John Burn-Murdoch, 2026-05 &#x27;Why birth rates are falling everywhere all at once&#x27;) / NYT (2026-06-08) 两篇报道</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>shownotes 与正文均明确提及 FT/NYT 两篇报道及作者职务（&#x27;该报首席数据记者&#x27;）；但未提及 NBER/SSRN 论文编号与作者——而全部数据出自论文</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 5/10。播客转录中明确提及了FT/NYT两篇报道及作者职务，与原文有直接对应关系，但缺少论文编号与作者信息，且数据来源未明确提及，因此对应强度中等。</div>
+  <div class="nt">与58/96/101的零归属形成对照：356报了转述媒体、未报原始研究。属&#x27;部分归属&#x27;——比零归属好，比学术规范（引用原始论文）差。可能是仅阅读媒体报道（含论文数字的转述）而非论文本身的工作流。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：E3 数据框架完整复制；归属不完整</div></div>
+  
+</article>
+<article class="rec" id="P257">
+  <div class="rec-top">
+    <span><span class="st trace">来源待定位</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 69 天</span>
+  </div>
+  <h3>257-当代伊朗如何颠覆什叶派伊斯兰？</h3>
+  <div class="to">题材相近的境外出处：Empire: World History《115. The Great Conversion: How Iran became Shia》；Breaking History《Restless Nation | The Making of Modern Iran (Part 1)》</div>
+  <div class="meta">本期：第257期 · Tue, 23 Sep 2025 20:13<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/68d2f8a9522b40626cf5fb6e/media.xyzcdn.net/64acd33c7a3d479103fbd32d/ll3rQaS3hqVl52Q1kSEG7Q1QnFuw.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/68d2f8a9522b40626cf5fb6e/med</a> <span class='ck'>[转录稿 sha256:ed25b067c9a50eb5]</span><br>来源：Empire: World History《115. The Great Conversion: How Iran became Shia》 · Thu, 18 Jan 2024 02:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT4490940280.mp3?updated=1705518665">https://pdst.fm/e/traffic.megaphone.fm/GLT4490940280.mp3?updated=1705518665</a> <span class='ck'>[转录稿 sha256:353988aedd42dc44]</span><br>来源：Breaking History《Restless Nation | The Making of Modern Iran (Part 1)》 · Wed, 16 Jul 2025 12:02<br><a href="https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic.megaphone.fm/RUNMED6093576064.mp3?updated=1753943433">https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic</a> <span class='ck'>[转录稿 sha256:d2fafe4545b5d2a1]</span></div>
+  <div class="lvl"><b>判定说明</b>　E1+E2；E3 未命中　发现途径：本项目初筛发现（0.746/0.715）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Empire 115：萨法维改宗专题访谈（蓝清真寺/地毯/伊斯玛仪肖像）≠ 257 通史叙事；BH Restless P1：现代史（锡安/殖民/立宪）无萨法维/列王纪</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>257：阿契美尼德→萨珊→波斯复兴→列王纪→加兹尼/塞尔柱→&#x27;统治者被波斯文明吸收&#x27;→1501 萨法维改宗什叶派→卡扎尔/巴列维→1979</div>
+  </div>
+  
+  <div class="nt">该波斯文明连续性叙事与 Abbas Amanat《Iran: A Modern History》序章高度同构（BH 该集嘉宾即 Amanat）——书源待验证。另发现 257 有&#x27;萨法维延续到1763年=孟德斯鸠写论法的精神&#x27;之疑点（实为1722年亡/1748年书），或为源错误传播，待书验证。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：E1+E2；E3 未命中</div></div>
+  
+</article>
+<article class="rec" id="P314">
+  <div class="rec-top">
+    <span><span class="st trace">来源待定位</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 50 天</span>
+  </div>
+  <h3>314-伊斯兰世界在过去百年面对强大的西方做出了怎样的反思</h3>
+  <div class="to">题材相近的境外出处：Breaking History《The Making of Modern Iran (Part 1)》；Breaking History《The Making of Modern Iran (Part 2) | The Red-Green Alliance》</div>
+  <div class="meta">本期：第314期 · Thu, 05 Mar 2026 20:57<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69a9ea19c8cdeb38c2020b01/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lphC0q-TMwGUoGuCyk3XPlegrCrB.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69a9ea19c8cdeb38c2020b01/med</a> <span class='ck'>[转录稿 sha256:21bf902156042615]</span><br>来源：Breaking History《The Making of Modern Iran (Part 1)》 · Wed, 14 Jan 2026 10:00<br><a href="https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic.megaphone.fm/CBS4294486357.mp3?updated=1768383280">https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic</a> <span class='ck'>[转录稿 sha256:6ec51979c8c153a1]</span><br>来源：Breaking History《The Making of Modern Iran (Part 2) | The Red-Green Alliance》 · Wed, 14 Jan 2026 10:15<br><a href="https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic.megaphone.fm/CBS8034668489.mp3?updated=1768382309">https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic</a> <span class='ck'>[转录稿 sha256:060e87cd8838acd7]</span></div>
+  <div class="lvl"><b>判定说明</b>　E2 弱对应；核心框架未命中　发现途径：本项目初筛发现（0.714/0.692）</div>
+  
+<div class="ev">
+  <span class="ty">部分对应</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>BH MMI P1：&#x27;resakhan could go down as a kemal ataturk… but instead he chose to become the man from whom he had taken power&#x27;（礼萨汗vs凯末尔对照）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>314：&#x27;伊朗是两种思想的实验室…土耳其的凯莫尔和埃及的班纳的两种思想世俗化和伊斯兰化都在伊朗上演了两次实验&#x27;</div>
+  </div>
+  
+  
+</div>
+<div class="ev">
+  <span class="ty">未命中</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>BH MMI P1/P2：无 al-Banna&#x27;不是太伊斯兰化而是太西化&#x27;引语、无&#x27;两种实验&#x27;框架</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>314：&#x27;hasan al班纳说…不是因为我们太伊斯兰化恰恰相反是我们不够伊斯兰化是我们太西化了&#x27;（班纳诊断+凯末尔完全相反+伊朗实验室框架）</div>
+  </div>
+  
+  <div class="nt">该框架疑来自政治伊斯兰史专著（Hamid/Mottahedeh 类），未定位。凯末尔侧可能参考 Empire 41《The Rise of Ataturk》(2023-04)。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：E2 弱对应；核心框架未命中</div></div>
+  
+</article>
+<article class="rec" id="P147">
+  <div class="rec-top">
+    <span><span class="st trace">来源待定位</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 594 天</span>
+  </div>
+  <h3>147-德国为何没变成一个马克思主义国家</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《The Year of Revolutions: 1848》</div>
+  <div class="meta">本期：第147期 · Sun, 15 Dec 2024 23:00<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/675f5cbc7d8426f69255c223/media.xyzcdn.net/lnSwPI45mLHY-_W9_5qWljVuiY2P.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/675f5cbc7d8426f69255c223/med</a> <span class='ck'>[转录稿 sha256:7f899c827e34c4c9]</span><br>来源：The Rest Is History《The Year of Revolutions: 1848》 · Mon, 01 May 2023 01:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT9746323554.mp3?updated=1777394808">https://pdst.fm/e/traffic.megaphone.fm/GLT9746323554.mp3?updated=1777394808</a> <span class='ck'>[转录稿 sha256:73d66ca08b2b8415]</span></div>
+  <div class="lvl"><b>判定说明</b>　E1；候选源指纹未命中　发现途径：本项目初筛发现（0.611）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>TRIH 1848：讲1848革命年（维也纳/柏林/意大利诸邦），无斯巴达克团/卢森堡/艾伯特/1918十一月革命内容（零命中）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>147：&#x27;卡尔·李卜克内西和罗莎·卢森堡…斯巴达克斯宣言…社民党干部学校…伯恩施坦/拉克夫斯基/穆勒&#x27;（1918德国革命专题）</div>
+  </div>
+  
+  <div class="nt">TRIH 1848 主题年代错位。真源疑为&#x27;It Didn&#x27;t Happen Here&#x27;（Lipset &amp; Marks, 2000）类专著——该书副题正是&#x27;为什么社会主义在美国失败&#x27;，且 137/147/188/101 的&#x27;为什么X国没有成为马克思主义国家&#x27;系列框架与之同构。待全书获取验证。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：E1；候选源指纹未命中</div></div>
+  
+</article>
+<article class="rec" id="P188">
+  <div class="rec-top">
+    <span><span class="st trace">来源待定位</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 668 天</span>
+  </div>
+  <h3>188-意大利为什么没有成为马克思主义国家？</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《The Year of Revolutions: 1848》</div>
+  <div class="meta">本期：第188期 · Thu, 27 Feb 2025 02:09<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/67bfb0c3606e5c5940161698/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lo8RbKJasxKRVk3icbVgSsKRXW9e.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/67bfb0c3606e5c5940161698/med</a> <span class='ck'>[转录稿 sha256:c39aae4986f7bef6]</span><br>来源：The Rest Is History《The Year of Revolutions: 1848》 · Mon, 01 May 2023 01:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT9746323554.mp3?updated=1777394808">https://pdst.fm/e/traffic.megaphone.fm/GLT9746323554.mp3?updated=1777394808</a> <span class='ck'>[转录稿 sha256:73d66ca08b2b8415]</span></div>
+  <div class="lvl"><b>判定说明</b>　E1；候选源指纹未命中　发现途径：本项目初筛发现（0.634）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>TRIH 1848：意大利部分讲1848诸邦与奥地利统治，无葛兰西/陶里亚蒂/马蒂奥蒂/法西斯期内容</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>188：&#x27;1924年马蒂奥提危机…总书记公开批评墨索里尼…当街绑架并杀害&#x27;（意大利马克思主义三部曲叙事）</div>
+  </div>
+  
+  <div class="nt">真源疑为意大利现代史专著。注意 188 转录稿中葛兰西/陶里亚蒂/波尔迪加零命中——叙述聚焦社会党-法西斯互动，与&#x27;马克思主义国家&#x27;系列框架一致，支持 Lipset&amp;Marks 类源假设。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：E1；候选源指纹未命中</div></div>
+  
+</article>
+<article class="rec" id="P044">
+  <div class="rec-top">
+    <span><span class="st ok">署名完整</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 </span>
+  </div>
+  <h3>44-智能手机如何影响青少年心理健康？</h3>
+  <div class="to">题材相近的境外出处：Jonathan Haidt《The Anxious Generation》(2024-03-26出版) + Bari Weiss 访谈(同日)《新书速读》</div>
+  <div class="meta">本期：第44期 · Mon, 01 Apr 2024 20:22<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/660b176f1519139e4f03f4f3/media.xyzcdn.net/lhPeKVL_cGD3AH7ssrcClYYdy21K.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/660b176f1519139e4f03f4f3/med</a> <span class='ck'>[转录稿 sha256:5d75b9ec3293abdb]</span><br>来源：Jonathan Haidt《The Anxious Generation》(2024-03-26出版) + Bari Weiss 访谈(同日)《新书速读》 · 2024-03-26 → 播客 2024-0<br><a href="https://podcasts.apple.com/us/podcast/smartphones-rewired-childhood-heres-how-to-fix-it/id1570872415?i=1000650431219">https://podcasts.apple.com/us/podcast/smartphones-rewired-childhood-heres-how-to-fix-it/id15</a></div>
+  <div class="lvl"><b>判定说明</b>　书内容复述但归属完整（基线样本）　发现途径：本项目 R6 新书通道核查</div>
+  
+<div class="ev">
+  <span class="ty">归属行为（完整署名）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>书 2024-03-26 出版；Bari Weiss 访谈同日发布</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>44: &#x27;jonathan haidt 在二零二四年三月二十六号…刚刚出版了一本新书书名叫做焦虑的一代…the anxious generation how the great rewiring of childhood is causing an epidemic of mental illness&#x27;（书名全称+作者+日期全给）；shownotes 亦列出书与 Bari Weiss 采访</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 低；直译对应程度 8/10。文本中包含了书名、作者和日期，与英文源信息高度一致，但缺少了出版信息来源的提及。</div>
+  <div class="nt">对照组：证明她完全知道规范归属怎么做。44 与 311 形成锋利对照——同为&#x27;速读新出英文材料&#x27;，44 书评式署名完整，311 全篇翻译 Burke 书却书面零标注。归属行为不是能力问题而是选择问题。</div>
+</div>
+<div class="ev">
+  <span class="ty">内容复述（书框架）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Haidt: 四大危害 social deprivation / sleep deprivation / attention fragmentation / addiction; 烟草公司比较; 1997年37%高中生吸烟; Zuckerberg 2021国会+Francis Haugen(ASR:francis hogan)调查</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>44: &#x27;这四种危害分别是社会性剥夺睡眠不足注意力分散以及成瘾 social deprivation sleep deprivation attention fragmentation and addition&#x27;+&#x27;一九九七年…百分之三十七的高中生…三分之二不吸烟&#x27;+&#x27;扎克伯格…francis hogan 做的调查&#x27;（书框架完整复述，但已归属）</div>
+  </div>
+  <div class="ck2">独立复核（glm-4-flash，不参与判级）：独立巧合可能性 中；直译对应程度 7/10。文本中包含了原文的主要概念和引用，如四大危害、烟草公司比较、高中生吸烟比例、Zuckerberg和Francis Haugen的调查等，但存在一些细节上的差异，如原文中的“addiction”被转录为“addition”，以及原文中的“37</div>
+  
+</div>
+  <div class="basis"><div class="b">判定依据：书内容复述但归属完整（基线样本）</div></div>
+  
+</article>
+<article class="rec" id="PFIELD">
+  <div class="rec-top">
+    <span><span class="st ok">署名完整</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 126 天</span>
+  </div>
+  <h3>作者对谈：美国新右翼的崛起（Laura Field）</h3>
+  <div class="to">题材相近的境外出处：Know Your Enemy《The Furious Minds of MAGA (w/ Laura Field)》</div>
+  <div class="meta">本期：第作者对谈期 · Tue, 31 Mar 2026 03:06<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69cb3572b977fb2c47b01e24/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lhDbsg-kj0CO3x9MsOnRvKX9GhqG.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69cb3572b977fb2c47b01e24/med</a> <span class='ck'>[转录稿 sha256:cf6021b614cd7740]</span><br>来源：Know Your Enemy《The Furious Minds of MAGA (w/ Laura Field)》 · Mon, 24 Nov 2025 11:30<br><a href="https://chrt.fm/track/F9DF47/cdn.simplecast.com/audio/8b7e1dd6-7328-4a2c-b91f-a3bfaf4f8f02/episodes/561f711e-9a72-40ad-b7e5-5cb82b142e2a/audio/241189ca-3da8-48c0-9058-2b5f39503353/default_tc.mp3?aid=rss_feed&amp;feed=MQHnVVgK">https://chrt.fm/track/F9DF47/cdn.simplecast.com/audio/8b7e1dd6-7328-4a2c-b91f-a3bfaf4f8f02/e</a> <span class='ck'>[转录稿 sha256:1e9a0abfa09ea1d9]</span></div>
+  <div class="lvl"><b>判定说明</b>　正式署名访谈（同一作者的两场独立宣传巡回）　发现途径：本项目 R10 扩库初筛发现（0.804，全库最高分）</div>
+  
+<div class="ev">
+  <span class="ty">合规操作（非洗稿）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>KYE（2025-11-24）：主持人采访 Laura Field 谈《Furious Minds》</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>DSCBL（2026-03-31）：&#x27;这是我和普林斯顿大学出版社共同推出的访谈系列…本期采访和我进行对话的是 laura field 他在二零二五年出版新书 furious minds&#x27;——采访对象即原作者本人，出版社署名</div>
+  </div>
+  
+  <div class="nt">0.804 高分源于同一本书的两场作者访谈主题重叠。二者为独立进行的书籍宣传巡回，采访对象=原作者、署名=出版社，属完全规范操作。与 P044（海特对）并列构成&#x27;规范对照组&#x27;：再次证明她在正式署名场景下能做到完全合规——归属是能力问题而非不知晓规范。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：正式署名访谈（同一作者的两场独立宣传巡回）</div></div>
+  
+</article>
+<article class="rec" id="P103">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 717 天</span>
+  </div>
+  <h3>103-黑格尔如何成为了集权专制的背锅侠？</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《Germans Behaving Badly》</div>
+  <div class="meta">本期：第103期 · Sun, 01 Sep 2024 04:54<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/66d3f38e5a91beebb3e9295d/media.xyzcdn.net/lt1mN0J_639oglNlyan_AvHuz3q9.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/66d3f38e5a91beebb3e9295d/med</a> <span class='ck'>[转录稿 sha256:0988dc41fa3b3fa8]</span><br>来源：The Rest Is History《Germans Behaving Badly》 · Thu, 15 Sep 2022 01:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT7143029609.mp3?updated=1694604507">https://pdst.fm/e/traffic.megaphone.fm/GLT7143029609.mp3?updated=1694604507</a> <span class='ck'>[转录稿 sha256:dc0b1cd2f898c76f]</span></div>
+  <div class="lvl"><b>判定说明</b>　指纹未命中（假阳性）　发现途径：本项目初筛发现（0.679）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>TRIH 稿：无 Popper/Open Society/Kaufmann/历史主义批判史内容（Hegel 仅背景提及）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>103：&#x27;波普写的开放社会及其敌人…直接粗暴的把黑格尔的政治哲学和德国纳粹主义划了一个等号&#x27;</div>
+  </div>
+  
+  <div class="nt">103 的&#x27;三波脏水&#x27;叙事（罗素/波普尔传播史）TRIH 完全没有。源疑为 Walter Kaufmann 或专书，未定位。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：指纹未命中（假阳性）</div></div>
+  
+</article>
+<article class="rec" id="P360">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 579 天</span>
+  </div>
+  <h3>360-贝多芬是歌颂法国大革命的音乐家吗？</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《Beethoven: Napoleon and the Music of War LIVE at the Royal Albert Hall》</div>
+  <div class="meta">本期：第360期 · Tue, 04 Aug 2026 12:32<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6a71d6afab3a91c24a0fb8c4/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lp57Be0F5RcQV9UqdqrJres1eK6O.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6a71d6afab3a91c24a0fb8c4/med</a> <span class='ck'>[转录稿 sha256:a5cb8c7b228a549f]</span><br>来源：The Rest Is History《Beethoven: Napoleon and the Music of War LIVE at the Royal Albert Hall》 · Thu, 02 Jan 2025 00:10<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT4140502571.mp3?updated=1735600324">https://pdst.fm/e/traffic.megaphone.fm/GLT4140502571.mp3?updated=1735600324</a> <span class='ck'>[转录稿 sha256:147d6c78ee43f310]</span></div>
+  <div class="lvl"><b>判定说明</b>　指纹未命中（假阳性）　发现途径：本项目初筛发现（0.709）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>TRIH 稿（皇家阿尔伯特现场秀）：无波恩宫廷/马克西米利安·弗朗兹/约瑟夫二世/van-von 诉讼内容</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>360：&#x27;贝多芬青年时代服务于科隆选侯马克西米利安弗朗兹…约瑟夫二世是欧洲开明专制的代表人物…van 常常被当做贵族标志&#x27;（接受史+波恩考据向）</div>
+  </div>
+  
+  <div class="nt">两侧均为对方没有的独特内容；共有元素（英雄交响曲/撕扉页/费德里奥/欢乐颂）属贝多芬公共叙事。360 疑来自政治传记类专著（Clubbe/Kinderman 类），未定位。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：指纹未命中（假阳性）</div></div>
+  
+</article>
+<article class="rec" id="P185">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 751 天</span>
+  </div>
+  <h3>185-《白鲸》为什么是美国文学的巅峰？</h3>
+  <div class="to">题材相近的境外出处：The History of Literature《481 Moby Dick - 10 Essential Questions (Part One)》；The History of Literature《482 Moby Dick - 10 Essential Questions (Part Two)》</div>
+  <div class="meta">本期：第185期 · Wed, 19 Feb 2025 21:54<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/67b64e48606e5c594097554f/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lhOjyYLoVIiGDIxHsLV6BuOTgqCS.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/67b64e48606e5c594097554f/med</a> <span class='ck'>[转录稿 sha256:88c2f9a446012d90]</span><br>来源：The History of Literature《481 Moby Dick - 10 Essential Questions (Part One)》 · Thu, 26 Jan 2023 05:01<br><a href="https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/swap.fm/track/tcQd6Q6C0RUUlOHq1Ytj/mgln.ai/e/51/pscrb.fm/rss/p/traffic.megaphone.fm/TPG5160671241.mp3?updated=1674663120">https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/swap.fm/track/tcQd6Q6C0RUUlOHq1Ytj/mgln.a</a> <span class='ck'>[转录稿 sha256:6227137c895935f9]</span><br>来源：The History of Literature《482 Moby Dick - 10 Essential Questions (Part Two)》 · Mon, 30 Jan 2023 05:01<br><a href="https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/swap.fm/track/tcQd6Q6C0RUUlOHq1Ytj/mgln.ai/e/51/pscrb.fm/rss/p/traffic.megaphone.fm/TPG6464705877.mp3?updated=1675008070">https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/swap.fm/track/tcQd6Q6C0RUUlOHq1Ytj/mgln.a</a> <span class='ck'>[转录稿 sha256:618461afb004808a]</span></div>
+  <div class="lvl"><b>判定说明</b>　指纹未命中（假阳性）；但呈现&#x27;原著细读&#x27;模式　发现途径：本项目初筛发现（0.666）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Literature History 481/482（&#x27;10 Essential Questions&#x27;访谈格式）：无 Locke/Kant/Plato/cetology 章节；内容为 Melville 生平/Carlyle/Hawthorne 影响/出版史</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>185：逐章细读小说——第35章桅楼&#x27;柏拉图的蜂蜜罐甜蜜的死&#x27;、第73章&#x27;吊起洛克的头…掉起了康德的头&#x27;、第85章&#x27;是否同样掌握了鲸的尊严与崇高&#x27;、约伯记&#x27;他把我们的铁当做稻草&#x27;——且现场朗读英文原句（&#x27;…hoist in k&#x27;s head and you come back again but in very poor plight&#x27;）后翻译</div>
+  </div>
+  
+  <div class="nt">这些内容全部出自《白鲸》小说原文。该期呈现与&#x27;播客翻译&#x27;不同的生产模式：读原著+直译引文（无二手中转证据）。对操作方法侧写的意义：她存在两种模式——原著细读（185类）与二手源翻译（58/96/101类），后者才是洗稿争议核心。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：指纹未命中（假阳性）；但呈现&#x27;原著细读&#x27;模式</div></div>
+  
+</article>
+<article class="rec" id="P237">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 2420 天</span>
+  </div>
+  <h3>237-陀思妥耶夫斯基会如何书写20世纪？</h3>
+  <div class="to">题材相近的境外出处：The History of Literature《169 Dostoevsky》</div>
+  <div class="meta">本期：第237期 · Mon, 14 Jul 2025 05:51<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/68749a8660f8f77d4063669f/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lhIBIqrSLBK9At1BRhFLy68xTZhT.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/68749a8660f8f77d4063669f/med</a> <span class='ck'>[转录稿 sha256:bdb4b43aeda57106]</span><br>来源：The History of Literature《169 Dostoevsky》 · Wed, 28 Nov 2018 05:02<br><a href="https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/swap.fm/track/tcQd6Q6C0RUUlOHq1Ytj/mgln.ai/e/51/pscrb.fm/rss/p/traffic.megaphone.fm/ADL4056729298.mp3?updated=1627571428">https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/swap.fm/track/tcQd6Q6C0RUUlOHq1Ytj/mgln.a</a> <span class='ck'>[转录稿 sha256:46a240c5706c537f]</span></div>
+  <div class="lvl"><b>判定说明</b>　指纹未命中（假阳性）；原著细读型　发现途径：本项目初筛发现（0.711）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>lithist 169（2018）：陀氏生平通览（作品年表/赌徒/白痴/群魔书名讨论），无 Koestler/Darkness at Noon/审判秀/认罪逻辑内容（零命中）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>237：库斯勒《正午的黑暗》整期细读——&#x27;原文德文…日食…英文名 darkness at noon&#x27;、伊万诺夫&#x27;鲁巴乔夫必然崩溃他必然认罪&#x27;、与《1984》《美丽新世界》的比较、&#x27;过几个月我自己翻译的目前还没有中译本的…政治小说&#x27;</div>
+  </div>
+  
+  <div class="nt">237 主体是小说《正午的黑暗》的细读+她自己的翻译计划预告，属原著细读型。其&#x27;逻辑必然/现代性批评&#x27;框架与陀氏《地下室手记》的连接或受弗兰克/剑桥指南影响（已有 reference），无二手播客中转证据。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：指纹未命中（假阳性）；原著细读型</div></div>
+  
+</article>
+<article class="rec" id="P325">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 174 天</span>
+  </div>
+  <h3>325-《洛丽塔》应该被禁吗？</h3>
+  <div class="to">题材相近的境外出处：The History of Literature《739 Lolita by Vladimir Nabokov (#14 GBOAT) | Johannes Gutenberg (with Eric Marshall White)》</div>
+  <div class="meta">本期：第325期 · Wed, 01 Apr 2026 15:03<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69cd3206e2c8be3155236692/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lslphFwgWtpDpiZC3G-dbpuVlL4f.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69cd3206e2c8be3155236692/med</a> <span class='ck'>[转录稿 sha256:c9eb65f3d73ae9f0]</span><br>来源：The History of Literature《739 Lolita by Vladimir Nabokov (#14 GBOAT) | Johannes Gutenberg (with Eric Marshall White)》 · Thu, 09 Oct 2025 04:00<br><a href="https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/swap.fm/track/tcQd6Q6C0RUUlOHq1Ytj/mgln.ai/e/51/pscrb.fm/rss/p/traffic.megaphone.fm/TPG1687298269.mp3?updated=1759674098">https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/swap.fm/track/tcQd6Q6C0RUUlOHq1Ytj/mgln.a</a> <span class='ck'>[转录稿 sha256:bda816dfbf61cc74]</span></div>
+  <div class="lvl"><b>判定说明</b>　指纹未命中（假阳性）；原著细读型　发现途径：本项目初筛发现（0.674）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>lithist 739（2025-10）：GBOAT 排名闲聊+出版轶事，无 Dolores/Quilty/Haze/nymphet 文本分析（Quilty/Haze 零命中）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>325：文本细读——安娜贝尔&#x27;替身逻辑…不是在爱一个人而是在追逐一个幻影&#x27;、奎尔蒂&#x27;不是道德对照而是黑暗镜像…从一个施暴者手中落入了另外一个施暴者的手中&#x27;、&#x27;童年创伤解释 vs 辩护&#x27;的分析</div>
+  </div>
+  
+  <div class="nt">325 的分析密度与文本细节（替身逻辑/黑暗镜像）远超 739 的排名讨论，为原著细读型。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：指纹未命中（假阳性）；原著细读型</div></div>
+  
+</article>
+<article class="rec" id="P275">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 3421 天</span>
+  </div>
+  <h3>275-哈姆雷特为什么是第一个现代人？</h3>
+  <div class="to">题材相近的境外出处：The History of Literature《48 Hamlet》</div>
+  <div class="meta">本期：第275期 · Sat, 08 Nov 2025 19:32<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/690f9993af4fc00da7c943fa/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lnQKTpDk8lf-70RE9mtWQpNv8i12.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/690f9993af4fc00da7c943fa/med</a> <span class='ck'>[转录稿 sha256:80e406e8bb7fddc6]</span><br>来源：The History of Literature《48 Hamlet》 · Mon, 27 Jun 2016 04:02<br><a href="https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/swap.fm/track/tcQd6Q6C0RUUlOHq1Ytj/mgln.ai/e/51/pscrb.fm/rss/p/traffic.megaphone.fm/ADL7884638606.mp3?updated=1627575781">https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/swap.fm/track/tcQd6Q6C0RUUlOHq1Ytj/mgln.a</a> <span class='ck'>[转录稿 sha256:7f10508e48c4ce00]</span></div>
+  <div class="lvl"><b>判定说明</b>　指纹未命中（假阳性）；原著细读型　发现途径：本项目初筛发现（0.605）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>lithist 48（2016）：哈姆雷特影响史/Coleridge 过度思考论（&#x27;overthinking leading to inaction&#x27;一句带过），无 interiority/七个独白/第一个现代人命题</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>275：&#x27;interiority 人的内在性…哈姆雷特是文学史上第一部把内在性本身当做主题的文学作品&#x27;、&#x27;一共有七个重要的独白&#x27;、&#x27;世界上第一个虚无主义者（文理学院校长语）&#x27;、戏剧呈现vs纸面文字的媒介论</div>
+  </div>
+  
+  <div class="nt">275 的&#x27;内在性作为主题&#x27;命题属学术解读（与 Harold Bloom 类论述同域），lithist 48 无此内容。原著细读型+个人轶事。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：指纹未命中（假阳性）；原著细读型</div></div>
+  
+</article>
+<article class="rec" id="P226">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 1 天</span>
+  </div>
+  <h3>226-以色列为何要攻击伊朗？</h3>
+  <div class="to">题材相近的境外出处：Breaking History《BONUS: Haviv Rettig Gur and Eli Lake on Israel&#x27;s Strike》</div>
+  <div class="meta">本期：第226期 · Sat, 14 Jun 2025 21:35<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/684de7a72a38b4d979aadf78/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lsjyuZh0s2tgdO5ecFX_8naU2Fx_.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/684de7a72a38b4d979aadf78/med</a> <span class='ck'>[转录稿 sha256:e49d6a0407457a4a]</span><br>来源：Breaking History《BONUS: Haviv Rettig Gur and Eli Lake on Israel&#x27;s Strike》 · Fri, 13 Jun 2025 21:18<br><a href="https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic.megaphone.fm/RUNMED6690982019.mp3?updated=1750196468">https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic</a> <span class='ck'>[转录稿 sha256:227ce1ea3d7064fb]</span></div>
+  <div class="lvl"><b>判定说明</b>　指纹未命中（新闻时效内容）　发现途径：BH 反向扫描（滞后1天引起怀疑）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>BH BONUS：Lake/Haviv 时事对谈（无 Rising Lion 细节；SenseVoice 对专有名词弱但访谈无行动叙事）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>226：&#x27;operation rising lion 生师计划&#x27;/&#x27;击毙三名最高级别将领 hosein萨拉米…&#x27;/&#x27;IAEA 理事会…二十年来首次裁定&#x27;/&#x27;科学家…死在了自己的床上&#x27;</div>
+  </div>
+  
+  <div class="nt">226 的具体细节（行动名/将领名/IAEA裁定）来自当周新闻通稿而非 BH 访谈。突发新闻的多源报道不构成洗稿证据。初筛0.649源于同期同主题。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：指纹未命中（新闻时效内容）</div></div>
+  
+</article>
+<article class="rec" id="P357">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 21 天</span>
+  </div>
+  <h3>357-美国社会主义者会像特朗普接管共和党一样接管民主党吗？</h3>
+  <div class="to">题材相近的境外出处：Breaking History《How the Democratic Socialists Conquered New York City》</div>
+  <div class="meta">本期：第357期 · Wed, 22 Jul 2026 02:14<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6a602410a3fec224d5a15437/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lkrkSW-E7TlQk9yR_aEsvnipNCtv.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6a602410a3fec224d5a15437/med</a> <span class='ck'>[转录稿 sha256:52d2f357ceeca39b]</span><br>来源：Breaking History《How the Democratic Socialists Conquered New York City》 · Tue, 30 Jun 2026 09:00<br><a href="https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic.megaphone.fm/CBS8251508130.mp3">https://www.podtrac.com/pts/redirect.mp3/tracking.swap.fm/track/VOdNgcECFk0maZgOJbmx/traffic</a> <span class='ck'>[转录稿 sha256:9a93fec10e65dfbd]</span></div>
+  <div class="lvl"><b>判定说明</b>　指纹未命中（自主分析续集）　发现途径：BH 反向扫描（0.651）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>BH DSA NYC：2019-2026纽约选举叙事（Cabán/Congress初选）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>357：DSA 2026新纲领逐条分析（&#x27;工人理应得到更多&#x27;）、&#x27;民主社会主义vs社会民主主义&#x27;概念辨析、Harrington 1980、Eric Cantor 2014、AOC 2028路径、纽约70年代财政危机类比——BH 均无</div>
+  </div>
+  
+  <div class="nt">357 是 353 的自主续集（纲领文本分析+政治学框架），初筛高分来自主题延续与词汇重叠。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：指纹未命中（自主分析续集）</div></div>
+  
+</article>
+<article class="rec" id="P312">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 40 天</span>
+  </div>
+  <h3>312-MAGA阵营内部为何对特朗普袭击伊朗感到不满</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《Revolution in Iran: Rise of the Ayatollah (Part 2)》</div>
+  <div class="meta">本期：第312期 · Tue, 03 Mar 2026 00:53<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69a62f1e66e2c303770d8b20/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lj7azH74atN8wuZL3gc7s0fFbrfZ.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69a62f1e66e2c303770d8b20/med</a> <span class='ck'>[转录稿 sha256:5f1a27cc76fb048b]</span><br>来源：The Rest Is History《Revolution in Iran: Rise of the Ayatollah (Part 2)》 · Thu, 22 Jan 2026 00:05<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT7243579163.mp3?updated=1769178690">https://pdst.fm/e/traffic.megaphone.fm/GLT7243579163.mp3?updated=1769178690</a> <span class='ck'>[转录稿 sha256:97dbc65fa9e49952]</span></div>
+  <div class="lvl"><b>判定说明</b>　指纹未命中（时事自主分析）　发现途径：本项目 R7 TRIH 反扫发现（0.638，滞后40天）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>TRIH Ayatollah P2：1979 革命史（卡特/霍梅尼/人质危机），零 MAGA/美国优先/卡尔森内容</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>312：2026 时事分析——MAGA 阵营分裂（铁锈带反战疲惫/美国优先成本论/年轻 MAGA 反以色列/卡尔森与Fuentes/柯克旧言论重浮），为 310 续集</div>
+  </div>
+  
+  <div class="nt">初筛高分来自伊朗主题延续。不排除借鉴了未入库的美时评播客论述框架——标为暂时排除，待扩库复查。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：指纹未命中（时事自主分析）</div></div>
+  <div class="cav">可能存在未入库源（美时评播客）；本轮仅排除 TRIH 候选。</div>
+</article>
+<article class="rec" id="P225">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 1099 天</span>
+  </div>
+  <h3>225-墨索里尼是一个怎样的法西斯</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《The First Fascist》</div>
+  <div class="meta">本期：第225期 · Thu, 12 Jun 2025 01:44<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/684a2fb31c88ae1166be01f6/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lkvHKIb49fAkeFjFbHWx-CNfZ6wj.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/684a2fb31c88ae1166be01f6/med</a> <span class='ck'>[转录稿 sha256:e72fe53f2721dad8]</span><br>来源：The Rest Is History《The First Fascist》 · Thu, 09 Jun 2022 01:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT5479566212.mp3?updated=1777394985">https://pdst.fm/e/traffic.megaphone.fm/GLT5479566212.mp3?updated=1777394985</a> <span class='ck'>[转录稿 sha256:26b26620353af01a]</span></div>
+  <div class="lvl"><b>判定说明</b>　TRIH 候选源未命中（对谈节目）　发现途径：本项目 R7 TRIH 反扫发现（0.596）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>TRIH The First Fascist（2022）：主角是邓南遮 D&#x27;Annunzio（阜姆城邦/维也纳空投传单），非墨索里尼生平（进军罗马/马泰奥蒂零命中）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>225：与&#x27;榜眼哥Kevin&#x27;对谈墨索里尼生平——社会党《前进报》主编→1914参战转向被开除→1919建党→1922进军罗马(号称30万实为2.6万/媒体提前布置拍照)→1924马泰奥蒂危机(狗刨出尸体/车牌号溯源)→1929拉特兰条约。开头明说&#x27;意大利为什么没有成为马克思主义国家都是我从你的微信语音里面偷的&#x27;</div>
+  </div>
+  
+  <div class="nt">对谈形式+素材互相借用（微信语音）为本土生产。墨索里尼标准叙事（进军罗马/马泰奥蒂）见诸通史，无单一指认源。标为暂时排除，若后续发现其叙述与某英文传记逐句对应再升级。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：TRIH 候选源未命中（对谈节目）</div></div>
+  <div class="cav">对谈类节目的二手源核验难度更高（口述人不明来源）；留待意史传记类书源建立后复查。</div>
+</article>
+<article class="rec" id="P084">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 146 天</span>
+  </div>
+  <h3>84-英国大选选了个啥？</h3>
+  <div class="to">题材相近的境外出处：The Rest Is History《Britain in 1974: The Crisis Election (Part 2)》</div>
+  <div class="meta">本期：第84期 · Mon, 08 Jul 2024 03:14<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/668b5998ae8e21859a3eb84e/media.xyzcdn.net/lqfgdyh7dS_a3zwiNxtGx460VVl4.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/668b5998ae8e21859a3eb84e/med</a> <span class='ck'>[转录稿 sha256:b42b04549b492a6f]</span><br>来源：The Rest Is History《Britain in 1974: The Crisis Election (Part 2)》 · Tue, 13 Feb 2024 00:10<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT9690615062.mp3?updated=1707747695">https://pdst.fm/e/traffic.megaphone.fm/GLT9690615062.mp3?updated=1707747695</a></div>
+  <div class="lvl"><b>判定说明</b>　初筛分 0.669 但时代错位（2024时事 vs 1974史）　发现途径：本项目 R7 TRIH 反扫发现</div>
+  
+<div class="ev">
+  <span class="ty">时代/内容错位</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>TRIH 1974 危机选举（2024-02）：希思/威尔逊/矿工罢工/悬浮议会（历史）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>84（2024-07-08 大选次日）：2010年来生活水平停滞/Truss&#x27;疯狂女人&#x27;两千亿能源补贴/Pew 78%经济不满——纯2024时事分析，无1974类比</div>
+  </div>
+  
+  <div class="nt">初筛高分源于&#x27;英国大选&#x27;词汇重叠。84 为大选次日快速时事评论。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：初筛分 0.669 但时代错位（2024时事 vs 1974史）</div></div>
+  <div class="cav">不排除参考了英国时评播客（如 The Rest Is Politics 当期）——该源未入库，标暂时排除。</div>
+</article>
+<article class="rec" id="P304">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 1042 天</span>
+  </div>
+  <h3>304-沙特阿拉伯过去十年在进行一场怎样的政治改革？</h3>
+  <div class="to">题材相近的境外出处：Empire: World History《43. The Birth of Saudi Arabia》</div>
+  <div class="meta">本期：第304期 · Mon, 16 Feb 2026 22:46<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6993986566e2c30377a25159/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lsM0NzvIe2-H_SGbmHAVG7xbv74T.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6993986566e2c30377a25159/med</a> <span class='ck'>[转录稿 sha256:d7793459b351a81d]</span><br>来源：Empire: World History《43. The Birth of Saudi Arabia》 · Tue, 11 Apr 2023 01:00<br><a href="https://pdst.fm/e/traffic.megaphone.fm/NSR3682184365.mp3?updated=1703675315">https://pdst.fm/e/traffic.megaphone.fm/NSR3682184365.mp3?updated=1703675315</a> <span class='ck'>[转录稿 sha256:fa6cf4cfaac64dea]</span></div>
+  <div class="lvl"><b>判定说明</b>　Empire 候选源未命中（当代政治分析 vs 建国史）　发现途径：本项目 R8 Empire 反扫发现（0.675）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Empire 43（2023-04）：伊本·沙特建国史（瓦哈比联盟/朝觐经济/1950s石油），零 MBS/Vision 2030/NEOM/卡舒吉内容</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>304：MBS 时代政治分析——愿景2030的KPI审计（NEOM/The Line 削减40-50%/解雇投资大臣）、&#x27;发展型威权国家合法性依赖经济KPI&#x27;框架、MBZ-MBS 师徒决裂、也门南方过渡委员会、土库曼-里海-阿塞拜疆走廊</div>
+  </div>
+  
+  <div class="nt">304 为高密度当代分析（含她自述&#x27;292期没讲清楚现在才说清&#x27;的自我修正）。疑有近期时评/智库源，未入库。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：Empire 候选源未命中（当代政治分析 vs 建国史）</div></div>
+  <div class="cav">当代海湾政治分析源（2025-26 智库报告或新书）未入库；暂时排除仅针对 Empire 43。</div>
+</article>
+<article class="rec" id="P354">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 767 天</span>
+  </div>
+  <h3>354-北美13个殖民地为什么能够战胜18世纪最强大的帝国？</h3>
+  <div class="to">题材相近的境外出处：Empire: World History《159. The American Revolution: Building The New Rome (Ep 4)》</div>
+  <div class="meta">本期：第354期 · Mon, 20 Jul 2026 07:48<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6a5dd00ea3fec224d5a05bb3/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lkDpyorA7SjFREDZdnw67OV09knD.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/6a5dd00ea3fec224d5a05bb3/med</a> <span class='ck'>[转录稿 sha256:cbac368a68df626b]</span><br>来源：Empire: World History《159. The American Revolution: Building The New Rome (Ep 4)》 · Wed, 12 Jun 2024 23:30<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT6353616839.mp3?updated=1717167034">https://pdst.fm/e/traffic.megaphone.fm/GLT6353616839.mp3?updated=1717167034</a> <span class='ck'>[转录稿 sha256:2f75479bdf44fc40]</span></div>
+  <div class="lvl"><b>判定说明</b>　Empire 159 未命中（不同切口：军事财政史 vs 帝国转向史）　发现途径：本项目 R8 Empire 反扫发现（0.625）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Empire 159（2024-06）：保皇派流亡/东印度公司/&#x27;新罗马&#x27;帝国意识——含 Benedict Arnold 之子去印度轶事</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>354：军事财政史切口——&#x27;华盛顿保存军队+避免决战&#x27;+弗兰克林外交+全球战线（法西荷宣战/迈索尔战争）+黑森雇佣兵宣传战+&#x27;欧洲职业军官市场&#x27;。无保皇派流亡/新罗马内容</div>
+  </div>
+  
+  <div class="nt">两边各有对方没有的独特内容；共有元素（萨拉托加→约克镇→法军合围）为独立战争通史框架。354 的&#x27;战争全球化&#x27;叙事疑有专书源（O&#x27;Shaughnessy/Ferling 类），未定位。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：Empire 159 未命中（不同切口：军事财政史 vs 帝国转向史）</div></div>
+  <div class="cav">军事史专书源未定位；暂时排除仅针对 Empire 159。</div>
+</article>
+<article class="rec" id="P283">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 86 天</span>
+  </div>
+  <h3>283-美国为何把支持以色列作为一种政策立场？</h3>
+  <div class="to">题材相近的境外出处：Empire: World History《294. Gaza &amp; The Islamic Conquest (Part 4)》</div>
+  <div class="meta">本期：第283期 · Thu, 25 Dec 2025 20:36<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/694d99dd63a654fa60de418e/media.xyzcdn.net/nm-uAU_VU2W3T4qPAZHP2qpwlauz.mp3">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/694d99dd63a654fa60de418e/med</a> <span class='ck'>[转录稿 sha256:4a6241a39b9d7ad4]</span><br>来源：Empire: World History《294. Gaza &amp; The Islamic Conquest (Part 4)》 · Mon, 29 Sep 2025 23:05<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT1066933045.mp3?updated=1758733388">https://pdst.fm/e/traffic.megaphone.fm/GLT1066933045.mp3?updated=1758733388</a> <span class='ck'>[转录稿 sha256:9ece4b899b35dd41]</span></div>
+  <div class="lvl"><b>判定说明</b>　Empire 294 未命中（古代史 vs 现代同盟史）　发现途径：本项目 R8 Empire 反扫发现（0.660，滞后86天）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>Empire 294：公元7世纪伊斯兰征服史（土耳其浴场谈判等古代轶事），零美以关系内容</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>283：美以同盟通史——1948武器禁运与斯大林-捷克军火/kibbutz社会主义/本古里安&#x27;推销美国&#x27;/艾森豪威尔苏伊士施压/1962 Hawk导弹&#x27;熊抱政策&#x27;/1967/1973石油禁运/卡特戴维营/沙龙反对伊拉克战争</div>
+  </div>
+  
+  <div class="nt">&#x27;熊抱（bear hug）&#x27;为2023-24年以来媒体通用政策术语（Foreign Policy/i24NEWS 等大量使用），283 将其反向投射为全史框架——属公共术语借用而非单一源复制。美以关系通史框架见诸标准学术叙事，暂未定位具体源。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：Empire 294 未命中（古代史 vs 现代同盟史）</div></div>
+  <div class="cav">美以关系史教科书/专著源未定位；暂时排除仅针对 Empire 294。</div>
+</article>
+<article class="rec" id="P102">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 357 天</span>
+  </div>
+  <h3>102-自由主义咋在赢了冷战后迅速变成了人人嫌的过街老鼠？</h3>
+  <div class="to">题材相近的境外出处：Know Your Enemy《What the Cold War Did to Liberalism (w/ Samuel Moyn)》</div>
+  <div class="meta">本期：第102期 · Wed, 28 Aug 2024 02:00<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/66ce84c856bfd3907a95f1bc/media.xyzcdn.net/lhaN_mhmoK2m2NCUoe_9eqe3VJcZ.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/66ce84c856bfd3907a95f1bc/med</a> <span class='ck'>[转录稿 sha256:e9b386c2988bc010]</span><br>来源：Know Your Enemy《What the Cold War Did to Liberalism (w/ Samuel Moyn)》 · Tue, 5 Sep 2023 19:57:<br><a href="https://chrt.fm/track/F9DF47/cdn.simplecast.com/audio/8b7e1dd6-7328-4a2c-b91f-a3bfaf4f8f02/episodes/48dd4a94-d945-46ff-8213-7fc0cfbb1767/audio/5975d52d-9ce8-45e8-8230-f3aad9f0a15f/default_tc.mp3?aid=rss_feed&amp;feed=MQHnVVgK">https://chrt.fm/track/F9DF47/cdn.simplecast.com/audio/8b7e1dd6-7328-4a2c-b91f-a3bfaf4f8f02/e</a> <span class='ck'>[转录稿 sha256:8dbf037b6fd6c39e]</span></div>
+  <div class="lvl"><b>判定说明</b>　KYE 未命中（原创框架表述）　发现途径：本项目 R9 扩库初筛发现（0.767）</div>
+  
+<div class="ev">
+  <span class="ty">反向验证（未命中）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>KYE（2023-09，Moyn 访谈）：cold war liberalism 学术史（totalitarianism 理论/后来新保守转向/vital center 提及一次）——Moyn 的&#x27;chastening and narrowing of liberalism&#x27;论</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>102：&#x27;自我阉割&#x27;（出现18次）框架——自由主义为对立于马列/纳粹而自我扁平化，胜而后衰；&#x27;像没有繁殖能力的太监一样&#x27;比喻；无 Shachtman/Schlesinger/vital center 内容</div>
+  </div>
+  
+  <div class="nt">102 的核心表述（自我阉割/太监比喻）在 KYE 中不存在；&#x27;胜而后衰&#x27;论与 Moyn 的&#x27;narrowing&#x27;论同域但措辞独立。判暂时排除（对 KYE）；同域学术源（如 Moyn 著作《Liberalism Against Itself》）未核。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：KYE 未命中（原创框架表述）</div></div>
+  <div class="cav">Moyn 2012 年著作未获取；暂时排除仅针对 KYE 该集。</div>
+</article>
+<article class="rec" id="P329">
+  <div class="rec-top">
+    <span><span class="st none">暂未发现</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 19 天</span>
+  </div>
+  <h3>329-20世纪美国托洛茨基派怎么都变成了保守派？</h3>
+  <div class="to">题材相近的境外出处：Know Your Enemy《From Neocon to Never-Trump (w/ Bill Kristol)》</div>
+  <div class="meta">本期：第329期 · Sat, 11 Apr 2026 20:05<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69daa633b977fb2c47af7233/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lmffOZwjqRaShJjnXzVbZyYM2PZa.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69daa633b977fb2c47af7233/med</a> <span class='ck'>[转录稿 sha256:f79d4db06313da1e]</span><br>来源：Know Your Enemy《From Neocon to Never-Trump (w/ Bill Kristol)》 · Mon, 23 Mar 2026 10:30<br><a href="https://chrt.fm/track/F9DF47/cdn.simplecast.com/media/audio/transcoded/a865448b-0150-455a-9c7f-f1042912833d/8b7e1dd6-7328-4a2c-b91f-a3bfaf4f8f02/episodes/audio/group/c0aefdc5-22bb-459a-ae06-5f5a89034501/group-item/923e1cdd-dd68-4087-a8f8-4e4dbfa0d323/128_default_tc.mp3?aid=rss_feed&amp;feed=MQHnVVgK">https://chrt.fm/track/F9DF47/cdn.simplecast.com/media/audio/transcoded/a865448b-0150-455a-9c</a> <span class='ck'>[转录稿 sha256:07a838cd75c06096]</span></div>
+  <div class="lvl"><b>判定说明</b>　候选源待比对（新保守主义史为公共学术叙事）　发现途径：本项目 R10 扩库初筛发现（0.756）</div>
+  
+<div class="ev">
+  <span class="ty">内容定位</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>KYE Kristol 集（2026-03-23）：Bill Kristol 亲述新保守主义家族史</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>329：伯纳姆(James Burnham)从托派到保守的轨迹/&#x27;和沙赫特等人共同活跃在社会主义工人党&#x27;/&#x27;克里斯托尔从阶级角度理解文化冲突&#x27;/&#x27;新阶级&#x27;理论——标准新保守主义思想史叙事</div>
+  </div>
+  
+  <div class="nt">329 的伯纳姆/沙赫特曼/克里斯托尔叙事见诸标准学术史（Himmelfarb/Kristol 回忆录/新保守主义思想史），属公共学术谱系。待与 KYE 转录稿比对后定级。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：候选源待比对（新保守主义史为公共学术叙事）</div></div>
+  <div class="cav">转录比对完成前不定级。</div>
+</article>
+<article class="rec" id="PATTR">
+  <div class="rec-top">
+    <span><span class="st act">行为记录</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 </span>
+  </div>
+  <h3>Shownotes 标注行为分析（17期横断）</h3>
+  <div class="to">题材相近的境外出处：（跨期行为记录，无单一来源）</div>
+  <div class="meta">本期：第—期 · RSS 抓取 2026-08-15<br> <span class='ck'>[转录稿 sha256:6af26251e9685daf]</span></div>
+  <div class="lvl"><b>判定说明</b>　选择性署名的量化记录　发现途径：本项目 R2 分析</div>
+  
+<div class="ev">
+  <span class="ty">署名不对称</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>俄国文学系 7 期（316/318/321/322/242/266/239）shownotes 均含&#x27;参考&#x27;；其中 318/322 列出&#x27;弗兰克五卷本；剑桥导读；Donna Tussing Orwin&#x27;</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>播客翻译系 11 期（310/58/96/101/105/234/353/205/147/188/137）shownotes 零标注；且 242/266 补注中未列被指认的 Orwin 两本专著（Tolstoy&#x27;s Art and Thought / Consequences of Consciousness）</div>
+  </div>
+  
+  <div class="nt">豆瓣汇总帖&#x27;新编&#x27;证实俄国文学系 reference 为被揭发后补加。补注本身即承认知晓规范；不完整补注+播客系零标注构成持续性选择性行为。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：选择性署名的量化记录</div></div>
+  
+</article>
+<article class="rec" id="P312R">
+  <div class="rec-top">
+    <span><span class="st act">行为记录</span></span>
+    <span style="font-size:11.5px;color:var(--ink2);">发布间隔 2 天</span>
+  </div>
+  <h3>312-MAGA阵营内部为何对特朗普袭击伊朗感到不满</h3>
+  <div class="to">题材相近的境外出处：The Rest Is Politics: US《TRUMP STRIKES IRAN - ARE WE AT WAR?》</div>
+  <div class="meta">本期：第312期 · Tue, 03 Mar 2026 00:53<br><a href="https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69a62f1e66e2c303770d8b20/media.xyzcdn.net/64acd33c7a3d479103fbd32d/lj7azH74atN8wuZL3gc7s0fFbrfZ.m4a">https://dts-api.xiaoyuzhoufm.com/track/64acd33c7a3d479103fbd32d/69a62f1e66e2c303770d8b20/med</a> <span class='ck'>[转录稿 sha256:5f1a27cc76fb048b]</span><br>来源：The Rest Is Politics: US《TRUMP STRIKES IRAN - ARE WE AT WAR?》 · Sat, 28 Feb 2026 16:11<br><a href="https://pdst.fm/e/traffic.megaphone.fm/GLT1195728730.mp3?updated=1772298011">https://pdst.fm/e/traffic.megaphone.fm/GLT1195728730.mp3?updated=1772298011</a> <span class='ck'>[转录稿 sha256:d12dcacc77e88f7f]</span></div>
+  <div class="lvl"><b>判定说明</b>　E2 同期对谈+部分立场对应；分析框架为扩展　发现途径：本项目 R9 扩库初筛发现（0.771，滞后3天；此前 P312 对 TRIH 为暂时排除，源假设经扩库证实方向）</div>
+  
+<div class="ev">
+  <span class="ty">E2 立场对应</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>RIP（2026-02-28）：&#x27;this is not what maga signed up for this is not america first…not thrilled with the military action in venezuela but they tolerated it…apart from people like tucker carlson who have opposed this&#x27;</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>312：MAGA 阵营分裂叙事+委内瑞拉对照（&#x27;委内瑞拉不是全球能源枢纽伊朗处于霍尔木兹海峡&#x27;）+卡尔森反对立场</div>
+  </div>
+  
+  
+</div>
+<div class="ev">
+  <span class="ty">差异（312 为结构化扩展）</span>
+  <div class="duo">
+    <div class="q e"><div class="lab">来源文本（英文原文或原著引文）</div>RIP 为事发次日快速对谈（短信/民调/情绪反应）</div>
+    <div class="q c"><div class="lab">独树不成林（中文转录稿）</div>312 构建&#x27;四类人地图&#x27;（杰斐逊农业共和国式孤立主义/铁锈带反战/年轻MAGA反以/福音派）+油价15-20%冲击链分析</div>
+  </div>
+  
+  <div class="nt">同期新闻事件的两个处理：RIP 是即时反应，312 是分类学分析。312 立场光谱与 RIP 部分重合（MAGA没签这个约/卡尔森/委内瑞拉对照），但分类框架与能源冲击链为扩展内容。判部分吻合：不排除参考了 RIP 或同类时评，但主体为自主组织。</div>
+</div>
+  <div class="basis"><div class="b">判定依据：E2 同期对谈+部分立场对应；分析框架为扩展</div></div>
+  
+</article>
+</section>
+
+<section class="sec">
+  <div class="sec-h"><h2>综合观察</h2><span>基于全部比对记录的三点陈述</span></div>
+  <div class="closing">
+    <p>一、标注"高度吻合"的 10 组记录中，对应的对象均为来源文本的<b>叙述方式</b>——
+    包括叙事顺序、素材取舍、比喻、玩笑乃至机器转录错误——而非公共历史事实本身。
+    其中第 310 期出现的"卫生法庭"一词，与来源音频的机器转录错误完全一致，
+    表明其工作文本为机器逐字稿而非音频本身。</p>
+    <p>二、来源标注行为存在明显差异。第 44 期对所引新书给出完整署名（作者、书名全称、
+    出版日期）；第 311、123 期口头提及作者或书名但书面未标注；第 356 期标注了转述媒体
+    而未标注原始论文；其余多组书面与口头均无标注。俄国文学系各期在社区指出后补充了
+    参考条目，但补充条目未涵盖被指认的全部书目。</p>
+    <p>三、本公告 16 组"暂未发现"记录中，多数为时事评论或小说细读类节目。
+    需要说明的是，来源库目前仅覆盖七家境外播客与有限书目，"暂未发现"仅指在现有
+    比对范围内未发现对应，不构成对相应节目原创性的认定。</p>
+  </div>
+</section>
+
+<div class="notice">
+  声明：本页为文本比对记录的整理，所载对照事实均可通过附链接的原始音频与附校验和的
+  转录稿复核。本页不构成法律结论，不对当事人作动机推断；比对范围受来源库覆盖所限，
+  且为随机抽样阶段性成果，结论随证据更新而修订。如发现新的对照线索，本页将据实增补。
+</div>
+
+<div class="colophon">
+  「独树不成林」内容来源对照 · 随机抽样阶段性核查 · 共 38 组比对记录 · 转录稿 79 份<br>
+  数据：evidence/registry.json · 转录：SenseVoice（本地）· 独立复核：glm-4-flash · 排版：scripts/build_bulletin.py
+</div>
+
+</div>
+</div>
+</body>
+</html>
