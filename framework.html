@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三维度判定框架 · 内容来源对照方法说明</title>
+<style>
+:root {
+  --paper:#fbf9f4; --paper2:#f4f1e8; --ink:#1a1a1a; --ink2:#555;
+  --rule:#1a1a1a; --hair:#d5d0c2;
+  --dimA:#1f3a5c; --dimB:#7a5a1a; --dimC:#7a1f1f;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:#eeeae0; color:var(--ink);
+  font-family:"Songti SC","Noto Serif CJK SC","Source Han Serif SC","SimSun","宋体",
+    "STSong",Georgia,"Times New Roman",serif;
+  font-size:16px; line-height:1.9; letter-spacing:.02em; }
+.sheet { max-width:980px; margin:24px auto; background:var(--paper);
+  box-shadow:0 2px 14px rgba(0,0,0,.13); }
+.inner { padding:34px 48px 52px; }
+
+.head { text-align:center; border-bottom:2.5px solid var(--rule); padding-bottom:16px; }
+.head .title { font-size:28px; font-weight:700; letter-spacing:3px; line-height:1.5; }
+.head .sub { font-size:13px; letter-spacing:2px; color:var(--ink2); margin-top:8px; }
+.head .bar { display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px;
+  font-size:11.5px; color:var(--ink2); margin-top:14px;
+  border-top:1px solid var(--rule); padding-top:8px; }
+
+.sec { margin-top:36px; }
+.sec-h { border-top:2.5px solid var(--rule); padding:8px 0 6px;
+  display:flex; justify-content:space-between; align-items:baseline;
+  border-bottom:1px solid var(--hair); }
+.sec-h h2 { font-size:18px; font-weight:700; letter-spacing:2px; }
+.sec-h span { font-size:11.5px; color:var(--ink2); }
+
+.intro { margin-top:24px; font-size:15px; text-align:justify; }
+.intro p { text-indent:2em; margin-bottom:12px; }
+
+/* 矩阵表 */
+table.mx { width:100%; border-collapse:collapse; margin-top:12px; font-size:13.5px; }
+table.mx th { border-top:2px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:7px 8px; text-align:left; font-size:11.5px; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--ink2); }
+table.mx td { border-bottom:1px solid var(--hair); padding:7px 8px; vertical-align:top; }
+table.mx .dim { font-weight:700; white-space:nowrap; }
+.dimA { color:var(--dimA); } .dimB { color:var(--dimB); } .dimC { color:var(--dimC); }
+
+/* 操作步骤 */
+.steps { font-size:14.5px; margin-top:12px; }
+.steps .st { display:grid; grid-template-columns:80px 1fr 140px; gap:12px;
+  border-bottom:1px solid var(--hair); padding:10px 2px; align-items:baseline; }
+.steps .n { font-weight:700; font-size:15px; }
+.steps .d { line-height:1.8; }
+.steps .t { font-size:12px; color:var(--ink2); text-align:right; }
+
+/* 检测表 */
+table.dt { width:100%; border-collapse:collapse; margin-top:12px; font-size:13px; }
+table.dt th { border-bottom:1px solid var(--rule); padding:6px 8px; text-align:left;
+  font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--ink2); }
+table.dt td { border-bottom:1px solid var(--hair); padding:6px 8px; vertical-align:top; }
+table.dt .yes { color:var(--dimC); font-weight:700; }
+table.dt .no { color:var(--ink2); }
+
+/* 判级速查 */
+table.qr { width:100%; border-collapse:collapse; margin-top:12px; font-size:13.5px; }
+table.qr th { border-top:2px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:7px 8px; text-align:left; font-size:11.5px; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--ink2); }
+table.qr td { border-bottom:1px solid var(--hair); padding:7px 8px; vertical-align:top; }
+table.qr .v { font-weight:700; white-space:nowrap; }
+
+/* 案例 */
+.case { margin-top:16px; border-left:3px solid var(--rule); padding-left:14px; }
+.case .lbl { font-size:11.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
+.case .body { font-size:14px; line-height:1.9; margin-top:6px; text-align:justify; }
+.case .ex { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:8px;
+  border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+.case .ex .q { padding:8px 12px; font-size:13px; line-height:1.8; }
+.case .ex .q:first-child { border-right:1px solid var(--hair); }
+.case .ex .lab { font-size:10px; letter-spacing:1.5px; color:var(--ink2);
+  text-transform:uppercase; margin-bottom:4px; }
+
+/* 完成度矩阵 */
+table.cm { width:100%; border-collapse:collapse; margin-top:12px; font-size:12.5px; }
+table.cm th { border-top:2px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:6px 7px; text-align:left; font-size:11px; letter-spacing:1px;
+  text-transform:uppercase; color:var(--ink2); }
+table.cm td { border-bottom:1px solid var(--hair); padding:5px 7px; vertical-align:top; }
+table.cm .hi { font-weight:700; color:var(--dimC); }
+table.cm .mid { color:var(--dimB); }
+table.cm .lo { color:var(--ink2); }
+
+/* 法律对应 */
+table.lg { width:100%; border-collapse:collapse; margin-top:12px; font-size:13.5px; }
+table.lg th { border-top:2px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:6px 8px; text-align:left; font-size:11.5px; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--ink2); }
+table.lg td { border-bottom:1px solid var(--hair); padding:6px 8px; vertical-align:top; }
+
+.notice { border:1.5px solid var(--rule); padding:12px 16px; margin-top:20px;
+  font-size:12px; line-height:1.9; background:var(--paper2); }
+.colophon { margin-top:30px; border-top:2.5px solid var(--rule); padding-top:10px;
+  text-align:center; font-size:11px; color:var(--ink2); letter-spacing:1px; line-height:2; }
+
+@media (max-width:860px) {
+  .inner { padding:18px 14px 30px; }
+  .steps .st { grid-template-columns:1fr; gap:2px; }
+  .case .ex { grid-template-columns:1fr; }
+  .case .ex .q:first-child { border-right:none; border-bottom:1px solid var(--hair); }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+<div class="inner">
+
+<header class="head">
+  <div class="title">三维度判定框架</div>
+  <div class="sub">「独树不成林」内容来源对照 · 方法说明 · 供读者理解本项目怎么判</div>
+  <div class="bar">
+    <span>方法论文档</span>
+    <span>2026 年 8 月 17 日 编制</span>
+    <span><a href="index.html" style="color:inherit;text-decoration:underline;">← 返回对照报告</a></span>
+  </div>
+</header>
+
+<section class="intro">
+  <p>本页说明我们在比对两段文本（一篇中文播客与一篇英文来源）时，<b>依据什么标准判定它们是否同源</b>。
+  框架由三个检测维度交叉构成——句法结构（A）、论证骨架（B）、语境用意（C）——
+  每一条对照均从三个维度分别检验后综合定级。</p>
+  <p>三者的区别可以这样理解：<b>A 看"怎么说的"</b>（修辞与句式是否直译），
+  <b>B 看"说了什么、按什么顺序说的"</b>（论证链与例证排列是否复制），
+  <b>C 看"为什么这么说"</b>（源文的错误、语气、论证目的是否被生硬搬运或嫁接）。</p>
+</section>
+
+<!-- ================= 矩阵 ================= -->
+<section class="sec">
+  <div class="sec-h"><h2>三维度 × 五层级交叉矩阵</h2><span>总览</span></div>
+  <table class="mx">
+    <tr><th>检测维度</th><th>具体操作</th><th>对应证据层级</th><th>强度</th></tr>
+    <tr>
+      <td class="dim dimA">A · 语法结构</td>
+      <td>比对句子的组织方式、修辞手法（比喻/排比/设问）、逻辑连接词模式</td>
+      <td>E5（逐句直译）</td>
+      <td><b>强</b></td>
+    </tr>
+    <tr>
+      <td class="dim dimB">B · 主干-细节</td>
+      <td>提取论证骨架（论点→论据→结论），检查是否"换皮不换骨"</td>
+      <td>E2（顺序）/ E3（指纹）</td>
+      <td><b>中 → 强</b></td>
+    </tr>
+    <tr>
+      <td class="dim dimC">C · 用意拼接</td>
+      <td>检查错误传播、多源拼接痕迹、原意被扭曲或生硬嫁接</td>
+      <td>E3 / E4（错误传播）</td>
+      <td><b>强</b></td>
+    </tr>
+  </table>
+</section>
+
+<!-- ================= 维度 A ================= -->
+<section class="sec">
+  <div class="sec-h"><h2>维度 A · 语法结构</h2><span>"怎么说的"</span></div>
+  <div style="font-size:14px;margin-top:12px;line-height:1.9;text-align:justify;">
+    <p style="text-indent:2em;margin-bottom:10px;">从两篇文本中各取一段讨论同一子话题的文字（至少三句），
+    比较其组织方式。如果一段文字是从另一语言翻译而来，即使措辞已经润色，
+    <b>句子的排列顺序、修辞手法的选择、逻辑连接词的模式</b>往往会留下痕迹。</p>
+  </div>
+  <table class="dt">
+    <tr><th>检测点</th><th>翻译痕迹</th><th>独立创作痕迹</th></tr>
+    <tr><td>句序</td><td class="yes">句子的先后顺序与源文一致</td><td class="no">按自己的逻辑重新组织</td></tr>
+    <tr><td>修辞</td><td class="yes">同一比喻的直译（如"slavish"→"跪舔"）</td><td class="no">自选不同的修辞</td></tr>
+    <tr><td>句法结构</td><td class="yes">二选一（A or B）、让步（depending on）等结构保留</td><td class="no">换用不同句式</td></tr>
+    <tr><td>连接词模式</td><td class="yes">"因为…所以…"对应"because…so…"的同位出现</td><td class="no">连接方式独立</td></tr>
+  </table>
+  <div class="case">
+    <div class="lbl dimA">实例 · P096 法国总统（A+）</div>
+    <div class="body">TRIH 主持人现场开的一个二选一玩笑，中文版完整保留了句法结构与让步语气：</div>
+    <div class="ex">
+      <div class="q"><div class="lab">TRIH 英文</div>he sees Britain's <b>special relationship</b> with the United States <b>or</b> <b>slavish dependency</b>… <b>depending on</b> what you prefer</div>
+      <div class="q"><div class="lab">独树不成林</div>不管你是把这种特殊关系定义为安格鲁萨克逊人的英美友谊，<b>还是</b>陨灭的老帝国对崛起的新帝国的<b>奴性依赖和跪舔</b></div>
+    </div>
+    <div class="body" style="font-size:13px;color:var(--ink2);margin-top:6px;">
+      → 二选一结构 + "depending on"的让步语气 + "slavish"→"跪舔"的意象直译：三重句法对应。
+    </div>
+  </div>
+</section>
+
+<!-- ================= 维度 B ================= -->
+<section class="sec">
+  <div class="sec-h"><h2>维度 B · 主干-细节</h2><span>"说了什么、按什么顺序"</span></div>
+  <div style="font-size:14px;margin-top:12px;line-height:1.9;text-align:justify;">
+    <p style="text-indent:2em;margin-bottom:10px;">提取双方的核心论证链——论点₁ → 论据₁ → 论据₂ → … → 结论——
+    然后比对两条链是否一一对应。这是识别<b>"主干不变、更换细节"</b>这一常见洗稿手法的关键维度：
+    表面措辞可能已经过改写，但论证步骤的排列和例证的选择会暴露源头。</p>
+  </div>
+  <table class="dt">
+    <tr><th>检测点</th><th>洗稿痕迹</th><th>独立创作痕迹</th></tr>
+    <tr><td>例证顺序</td><td class="yes">与源文完全一致（即使换词）</td><td class="no">按自己的逻辑重新排列</td></tr>
+    <tr><td>数据引用</td><td class="yes">同一数据、同一出处、同一精度</td><td class="no">不同数据或不同精度</td></tr>
+    <tr><td>案例选择</td><td class="yes">选中了源文特意挑选的冷门案例</td><td class="no">选了不同的常见案例</td></tr>
+    <tr><td>结论表述</td><td class="yes">结论的措辞可还原为源文原句</td><td class="no">结论独立得出</td></tr>
+  </table>
+  <div class="case">
+    <div class="lbl dimB">实例 · P234 彼得大帝（B+）</div>
+    <div class="body">Empire 播客的论证链与中文版逐步对应，独特数字指纹被精确复制：</div>
+    <div class="ex">
+      <div class="q"><div class="lab">Empire 英文</div>he calls himself <b>Peter Mikhailov</b> as a pseudonym… they set off with <b>250 people</b> in the entourage</div>
+      <div class="q"><div class="lab">独树不成林</div>彼得以一个叫做<b>彼得米哈伊洛夫</b>的化名随行<b>二百五十个人</b>启程</div>
+    </div>
+    <div class="body" style="font-size:13px;color:var(--ink2);margin-top:6px;">
+      → 化名（Peter Mikhailov→彼得米哈伊洛夫）+ 数字（250→二百五十）精确对应。
+      另有"咬尸体"轶事：Empire "made all his entourage bite the body"→"强迫同伴用牙齿去咬尸体肌肉"。
+    </div>
+  </div>
+</section>
+
+<!-- ================= 维度 C ================= -->
+<section class="sec">
+  <div class="sec-h"><h2>维度 C · 用意拼接</h2><span>"为什么这么说"</span></div>
+  <div style="font-size:14px;margin-top:12px;line-height:1.9;text-align:justify;">
+    <p style="text-indent:2em;margin-bottom:10px;">检查语境的完整性。这一维度检测三种情形：
+    <b>错误传播</b>（源文的错误被无差别复制——最强证据）、<b>多源拼接</b>（从多个源缝合内容，
+    缝合处有语气断裂或逻辑跳跃）、<b>用意扭曲</b>（源文的观点被嫁接到完全不同的论证目的上）。</p>
+  </div>
+  <table class="dt">
+    <tr><th>检测点</th><th>拼接/传播痕迹</th></tr>
+    <tr><td>语气断裂</td><td class="yes">前半段学术分析语气，突然切换为播客闲聊语气（来自不同源的访谈与专著）</td></tr>
+    <tr><td>逻辑跳跃</td><td class="yes">从论点 A 到论据 B 之间缺乏过渡，因为它们来自不同源的不同章节</td></tr>
+    <tr><td>知识断层</td><td class="yes">引用了一个只有源文作者才知道的细节，但未能解释其背景</td></tr>
+    <tr><td>错误传播</td><td class="yes"><b>最强证据</b>：源文的错误（机器转录/事实错误/立场偏见）被无差别复制</td></tr>
+  </table>
+  <div class="case">
+    <div class="lbl dimC">实例 · P310 伊朗（C+ · 错误传播）</div>
+    <div class="body">这是全项目最强的一条证据——"卫生法庭"一词只能是照着错误机器转录稿翻译的产物：</div>
+    <div class="ex">
+      <div class="q"><div class="lab">Breaking History 音频</div>Shah 建立了 "health <b>corps</b>, literacy <b>corps</b>"（卫生<b>服务队</b>、扫盲<b>服务队</b>）</div>
+      <div class="q"><div class="lab">独树不成林</div>伊朗国王设立了完整的法庭包括<b>卫生法庭</b>和<b>扫盲法庭</b>…把<b>扫盲法庭</b>从首都德黑兰派到农村</div>
+    </div>
+    <div class="body" style="font-size:13px;color:var(--ink2);margin-top:6px;">
+      → Apple Podcast 的机器转录把 "corps"（队）误听为 "court"（法庭）——历史上不存在"卫生法庭"。
+      独立创作者不可能"碰巧"复制同一个错误。她翻译的对象是机器逐字稿而非音频。
+    </div>
+  </div>
+  <div class="case">
+    <div class="lbl dimC">实例 · P234 彼得大帝（C · 多源拼接）</div>
+    <div class="body" style="font-size:13.5px;">
+      TRIH 提供了框架与年代顺序，Empire 提供了独特细节（250人使团/咬尸体/亚速港）。
+      中文版将两者缝合为一期完整叙事——单一源比对会漏证据，多源拼接需要逐源拆解。
+    </div>
+  </div>
+</section>
+
+<!-- ================= 判定流程 ================= -->
+<section class="sec">
+  <div class="sec-h"><h2>综合判定流程</h2><span>五步操作</span></div>
+  <div class="steps">
+    <div class="st"><div class="n">Step 1</div><div class="d"><b>维度 A 快扫</b>（约 5 分钟）——对齐 2-3 段同话题文字，比对句法结构与修辞手法。记录 A+ / A / A-。</div><div class="t">句法层</div></div>
+    <div class="st"><div class="n">Step 2</div><div class="d"><b>维度 B 骨架比对</b>（约 15 分钟）——提取双方论证链，比对步骤与例证排列。记录 B+ / B / B-。</div><div class="t">结构层</div></div>
+    <div class="st"><div class="n">Step 3</div><div class="d"><b>维度 C 语境检查</b>（约 10 分钟）——检查错误传播、拼接痕迹、用意扭曲。记录 C+ / C / C-。</div><div class="t">语境层</div></div>
+    <div class="st"><div class="n">Step 4</div><div class="d"><b>综合判级</b>——A+ 或 C+ 或 (B+ 且 ≥3 独特指纹) → 高度吻合；A 或 B → 部分吻合；全 A-/B-/C- → 暂未发现。</div><div class="t">定级</div></div>
+    <div class="st"><div class="n">Step 5</div><div class="d"><b>独立复核</b>——交给独立语言模型评估两段文本独立出现的可能性，结果随证据原样刊出。</div><div class="t">校验</div></div>
+  </div>
+</section>
+
+<!-- ================= 判级速查 ================= -->
+<section class="sec">
+  <div class="sec-h"><h2>判级速查表</h2><span>六档结果</span></div>
+  <table class="qr">
+    <tr><th>判级</th><th>必要条件</th><th>典型特征</th></tr>
+    <tr><td class="v">高度吻合</td><td>A+ 或 C+ 或 (B+ 且 ≥3 独特指纹)</td><td>逐句可对译 / 错误传播 / 素材链同序</td></tr>
+    <tr><td class="v">存在对应·待核实</td><td>B+ 但逐句比对未完成</td><td>书籍内容主体同构，全文尚未获取</td></tr>
+    <tr><td class="v">部分吻合</td><td>B 或 (A 且 B-)</td><td>个别细节对应 / 结构相似但可独立出现</td></tr>
+    <tr><td class="v">来源待定位</td><td>结构疑似有源但现有源库未命中</td><td>真源疑为书籍或未入库节目</td></tr>
+    <tr><td class="v">暂未发现</td><td>A- 且 B- 且 C-</td><td>在现有候选中三维度均无信号</td></tr>
+    <tr><td class="v">署名完整</td><td>任何吻合 + 归属完整</td><td>正规书评 / 署名访谈</td></tr>
+  </table>
+</section>
+
+<!-- ================= 完成度矩阵 ================= -->
+<section class="sec">
+  <div class="sec-h"><h2>当前证据的维度完成度</h2><span>15 组高度吻合案例</span></div>
+  <table class="cm">
+    <tr><th>对</th><th>维度 A</th><th>维度 B</th><th>维度 C</th><th>判级</th></tr>
+    <tr><td>P310 伊朗</td><td class="mid">B+</td><td class="mid">B+</td><td class="hi">C+（错误传播）</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P058 Rufo</td><td class="hi">A+（措辞直译）</td><td class="mid">B+</td><td class="mid">C</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P096 法国总统</td><td class="hi">A+（玩笑句法）</td><td class="mid">B+</td><td class="mid">C（笑点复制）</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P027 Callard</td><td class="hi">A+（Smith定义直译）</td><td class="mid">B+</td><td class="mid">C</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P308 女权</td><td class="mid">B+</td><td class="mid">B+</td><td class="mid">C（my body my choice挪用）</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P234 彼得大帝</td><td class="mid">B+</td><td class="hi">B+（250人指纹）</td><td class="hi">C（多源拼接）</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P311 恐怖主义</td><td class="mid">B+</td><td class="mid">B+</td><td class="hi">C+（语气复制）</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P304C 沙特</td><td class="mid">B+</td><td class="hi">B+（NEOM削减/管道）</td><td class="mid">C</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P354S 独立战争</td><td class="lo">—</td><td class="hi">B+（世界大战论）</td><td class="lo">—</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P356 生育率</td><td class="lo">—</td><td class="hi">B+（NBER数据全套）</td><td class="lo">—</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P101 Paris 1968</td><td class="mid">B+</td><td class="mid">B+</td><td class="mid">C（传记引述）</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P105 DEI</td><td class="mid">B+</td><td class="mid">B+</td><td class="mid">C</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P242 托尔斯泰</td><td class="hi">A+（框架直译）</td><td class="mid">B+</td><td class="lo">—</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P266 陀/托儿童</td><td class="mid">B+</td><td class="hi">B+（Nellie材料链）</td><td class="lo">—</td><td class="hi">高度吻合</td></tr>
+    <tr><td>P316 职业作家</td><td class="mid">B+</td><td class="hi">B+（21%/12机关）</td><td class="lo">—</td><td class="hi">高度吻合</td></tr>
+  </table>
+  <div style="font-size:13px;color:var(--ink2);margin-top:8px;">
+    注：标注"—"的维度表示该维度尚未做深度比对（通常因源文为书籍全文未获取），
+    不代表该维度无信号。后续比对将补充。
+  </div>
+</section>
+
+<!-- ================= 法律对应 ================= -->
+<section class="sec">
+  <div class="sec-h"><h2>与学术/法律标准的对应</h2><span>参考</span></div>
+  <table class="lg">
+    <tr><th>本框架</th><th>学术不端检测</th><th>法律概念</th></tr>
+    <tr><td>A+ 逐句直译</td><td>Verbatim / mosaic plagiarism</td><td>Substantial similarity（逐字近似）</td></tr>
+    <tr><td>B+ 主干同构</td><td>Paraphrasing plagiarism</td><td>Probative similarity（保护表达而非思想）</td></tr>
+    <tr><td>C+ 错误传播</td><td>Common errors test</td><td>"指纹"证据（法证学标准）</td></tr>
+    <tr><td>B- 仅主题相似</td><td>Common source / independent creation</td><td>不构成侵权</td></tr>
+  </table>
+  <div style="font-size:13.5px;margin-top:10px;line-height:1.9;text-align:justify;">
+    <p style="text-indent:2em;"><b>关键区分</b>：事实与公共知识不受著作权保护（merger doctrine）；
+    受保护的是<b>表达方式</b>——论证的组织、修辞的选择、例证的排列。
+    本框架的 A/B/C 三维度恰好对应表达方式的三个层面：句法层、结构层、语境层。</p>
+  </div>
+</section>
+
+<div class="notice">
+  本页为方法论文档，不包含具体对照证据。全部对照记录及其原始链接请查阅
+  <a href="index.html" style="color:inherit;text-decoration:underline;">对照报告</a>。
+  本框架为本项目自行设计，供读者评估本项目判定方法的可靠性与局限。
+</div>
+
+<div class="colophon">
+  三维度判定框架 · 「独树不成林」内容来源对照 · 方法说明<br>
+  详细文档：research/method/framework_v2.md · 编制：scripts/build_framework.py
+</div>
+
+</div>
+</div>
+</body>
+</html>
