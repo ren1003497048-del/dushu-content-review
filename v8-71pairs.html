@@ -166,23 +166,33 @@ article.rec { margin-top:26px; border-top:1.5px solid var(--rule); padding-top:1
 </div>
 
 <section class="sec">
-  <div class="sec-h"><h2>比对方法说明</h2><span>判级标准与核验流程</span></div>
-  <div class="methods">
-    <div class="row"><div class="k">高度吻合</div><div class="v">指以下任一情形：连续语句可逐句对译；
-      原文特有错误（如机器转录将 corps 误作 court）在中文中同步出现；三处以上独立细节
-      （数字、轶事、比喻、玩笑）以相同顺序出现。</div></div>
-    <div class="row"><div class="k">部分吻合</div><div class="v">存在个别细节对应或结构相似，
-      但独立出现的可能性尚未完全排除。</div></div>
-    <div class="row"><div class="k">存在对应·待核实</div><div class="v">内容主体与某书籍章节同构，
-      且存在口头提及书名而书面未标注的情形；待获取书籍全文逐句核对后定级。</div></div>
-    <div class="row"><div class="k">来源待定位</div><div class="v">结构疑似有源，但现有七家境外
-      播客库中均未发现指纹对应；推测来源为书籍或未入库节目。</div></div>
-    <div class="row"><div class="k">暂未发现</div><div class="v">现有候选来源中未发现对应指纹。
-      因来源库覆盖有限，不排除存在未发现的其他来源，故不使用"排除"表述。</div></div>
-    <div class="row"><div class="k">核验流程</div><div class="v">每条对应关系经三个环节：
-      （一）双语转录并逐项比对细节；（二）由独立语言模型（不参与判级）评估两段文本
-      独立出现的可能性，结果原样刊出；（三）音频原始链接与转录稿校验和一并公布，
+  <div class="sec-h"><h2>比对方法说明</h2><span>三维度判定框架（v2）与核验流程</span></div>
+  <div style="font-size:13.5px;margin-top:10px;line-height:1.9;">
+    <p style="text-indent:2em;margin-bottom:12px;">本公告采用<b>三维度交叉判定框架</b>：每一条对照从句法结构（A）、
+    论证骨架（B）、语境用意（C）三个维度分别检验，再综合定级。</p>
+    <div class="methods">
+    <div class="row"><div class="k">维度 A<br>语法结构</div><div class="v">比对句子组织方式——
+      修辞手法（比喻/排比/设问）是否直译、逻辑连接词模式是否对应、
+      二选一/让步等句法结构是否保留。<b>A+</b> = 句序一致 + 修辞直译 + 句法模式对应。
+      例：TRIH "special relationship <b>or</b> slavish dependency… <b>depending on</b>…" →
+      "…<b>还是</b>…的奴性依赖和跪舔"——二选一结构完整保留。</div></div>
+    <div class="row"><div class="k">维度 B<br>主干-细节</div><div class="v">提取论证链
+      （论点→论据→结论的排列），检查是否"换皮不换骨"——论证步骤是否一一对应、
+      同一组例证是否以同一顺序出现（即使措辞已换）。<b>B+</b> = 论证链完全对应 + 独特例证保留。
+      例：Empire "set off with <b>250</b> people" → "随行<b>二百五十个人</b>"——数字指纹精确复制。</div></div>
+    <div class="row"><div class="k">维度 C<br>用意拼接</div><div class="v">检查语境完整性——
+      是否存在错误传播（源文的错误被无差别复制）、多源拼接痕迹（语气断裂/逻辑跳跃/知识断层）、
+      或原意被生硬嫁接。<b>C+</b> = 错误传播或语气/用意完整复制。
+      例："卫生<b>法庭</b>"（源音频说的是 health <b>corps</b>/卫生服务队，Apple 机器转录错为 court，
+      被照单直译）——独立创作者不可能碰巧复制同一个错误。</div></div>
+    <div class="row"><div class="k">综合判级</div><div class="v">高度吻合 = A+ 或 C+ 或 (B+ 且 ≥3 独特指纹)；
+      部分吻合 = 个别维度有对应但可独立出现；暂未发现 = 三维度均无信号。
+      因来源库覆盖有限，不使用"排除"表述。</div></div>
+    <div class="row"><div class="k">核验流程</div><div class="v">每条对照经三环节：
+      （一）双语转录并按 A/B/C 三维度逐项比对；（二）由独立语言模型（不参与判级）评估
+      两段文本独立出现的可能性，结果原样刊出；（三）音频原始链接与转录稿校验和一并公布，
       供第三方复核。语音识别产生的错别字原样保留，不作修饰。</div></div>
+    </div>
   </div>
 </section>
 
